@@ -1,0 +1,36 @@
+
+@media (max-width: 576px) {
+.messenger {
+        position: fixed;
+        bottom: 70px;
+        right: 23px;
+        z-index: 1;
+    }
+    img{
+        width: 50px;
+        height: 50px;
+    }
+
+    .zalo {
+        position: fixed;
+        bottom: 130px;
+        right: 23px;
+        z-index: 1;
+    }
+}
+
+@media (min-width: 1200px) {
+    .messenger {
+            position: fixed;
+            bottom: 76px;
+            right: 16px;
+            z-index: 1;
+        }
+    
+        .zalo {
+            position: fixed;
+            bottom: 156px;
+            right: 16px;
+            z-index: 1;
+        }
+}

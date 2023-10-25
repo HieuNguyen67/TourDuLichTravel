@@ -1,0 +1,49 @@
+.offcanvas-size-xl {
+    --bs-offcanvas-width: min(95vw, 600px) !important;
+    --bs-offcanvas-bg: #75badad1 !important;
+}
+
+.offcanvas-size-xxl {
+    --bs-offcanvas-width: min(95vw, 90vw) !important;
+    --bs-offcanvas-bg: #75badaa6 !important
+}
+
+.offcanvas-size-md {
+    /* add Responsivenes to default offcanvas */
+    --bs-offcanvas-width: min(95vw, 400px) !important;
+    --bs-offcanvas-bg: #75badaa6 !important
+}
+
+.offcanvas-size-sm {
+    --bs-offcanvas-width: 250px !important;
+    --bs-offcanvas-bg:#75badad1!important
+}
+.dropdown-menu{
+    --bs-dropdown-bg:rgba(0, 0, 0, 0.388) !important;
+    --bs-dropdown-link-hover-bg: #04828488 !important;
+}
+.nav-link{
+    color: whitesmoke !important;
+}
+.navbar {
+    background-color: transparent;
+   
+}
+
+.navbar.colorChange {
+    background-color: #75badae4;
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.decorate {
+    text-decoration: none;
+}
+@media (max-width: 992px) {
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+    }
+}
+.white{
+    color: whitesmoke;
+}

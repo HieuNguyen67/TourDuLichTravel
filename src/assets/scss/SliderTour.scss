@@ -1,0 +1,67 @@
+.borders{
+    border: 1px solid lightgrey;
+    height: 320px;
+    border-radius: 10px;
+  
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.bg-opacity , .bg1-opacity,.bg2-opacity,.bg3-opacity,.bg4-opacity{
+    @extend %background;
+}
+
+.bg-opacity::before {
+    @extend %backgroundbefore;
+    background: url("../image/1.png") no-repeat center center;
+    
+}
+
+
+.bg1-opacity::before {
+    @extend %backgroundbefore;
+    background: url("../image/2.png") no-repeat center center;
+    
+}
+
+
+.bg2-opacity::before {
+        @extend %backgroundbefore;
+    background: url("../image/3.jpg") no-repeat center center;
+    
+}
+
+
+.bg3-opacity::before {
+        @extend %backgroundbefore;
+    background: url("../image/4.jpg") no-repeat center center;
+    
+}
+
+
+.bg4-opacity::before {
+        @extend %backgroundbefore;
+    background: url("../image/5.jpg") no-repeat center center;
+    
+    
+}
+%backgroundbefore{
+    content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.6;
+        background-size: cover;
+        border-radius: 10px;
+}
+%background{
+    position: relative;
+        background-color: #000;
+}
+.textshadow1 {
+    text-shadow: 5px 5px 10px black;
+}
