@@ -13,6 +13,7 @@ import SliderTourChinh from "../components/SliderTourChinh";
 import BackToTop from "../components/BackToTop";
 import ListTour from "../components/ListTours.js";
 import WhyChoose from "../components/WhyChoose";
+import Footer from "../components/Footer";
 const Home = () => {
   
 
@@ -22,37 +23,30 @@ const Home = () => {
         initial={{ opacity: 0, y: 98 }}
         animate={{ opacity: 1, y: 1 }}
         transition={{ type: "spring", duration: 0.6 }}
-        className="borderr"
       >
         <div className="background ">
           <Container className="">
             <div className="pt-md-5 ">
               <div className="pt-5">
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Row className="d-flex flex-column mt-5 ">
-                    <Col className="pt-md-5 pt-4 mt-md-5">
-                      <h2 className="white fontwelcome text-warning textshadow">
-                        Welcome to Travel Tour
-                      </h2>
-                    </Col>
-                    <Col className="">
-                      <h1 className="white fonttttt fonttts textshadow">
-                        {" "}
-                        Khám phá địa điểm du lịch yêu thích của bạn với chúng
-                        tôi
-                      </h1>
-                    </Col>
-                    <Col>
-                      <p className="white fontttt textshadow">
-                        Du lịch đến bất cứ nơi nào bạn chỉ cần liên hệ với chúng
-                        tôi
-                      </p>
-                    </Col>
-                  </Row>
-                </motion.div>
+                <Row className="d-flex flex-column mt-5 ">
+                  <Col className="pt-md-5 pt-4 mt-md-5">
+                    <h2 className="white fontwelcome text-warning textshadow">
+                      Welcome to Travel Tour
+                    </h2>
+                  </Col>
+                  <Col className="">
+                    <h1 className="white fonttttt fonttts textshadow">
+                      {" "}
+                      Khám phá địa điểm du lịch yêu thích của bạn với chúng tôi
+                    </h1>
+                  </Col>
+                  <Col>
+                    <p className="white fontttts textshadow">
+                      Du lịch đến bất cứ nơi nào bạn chỉ cần liên hệ với chúng
+                      tôi
+                    </p>
+                  </Col>
+                </Row>
               </div>
             </div>
           </Container>
@@ -60,7 +54,7 @@ const Home = () => {
         <Container>
           {/* <NavsTab /> */}
 
-          <div className="mt-md-5 pt-md-5 my-3">
+          <div className="mt-md-5 pt-md-5 my-3 pt-3">
             <Row className="d-flex">
               <Col />
               <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
@@ -132,7 +126,7 @@ const Home = () => {
 
           <WhyChoose />
         </Container>
-      </motion.div>{" "}
+      </motion.div>
     </>
   );
 };

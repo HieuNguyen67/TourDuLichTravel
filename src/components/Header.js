@@ -37,7 +37,7 @@ const Header = (props) => {
           {" "}
           {/* #f8f9fa */}
           <Container className="my-2">
-            <NavLink to="/React-Apple" className=" decorate">
+            <NavLink to="/" className=" decorate">
               <Navbar.Brand to="/">
                 
                 <img
@@ -66,8 +66,8 @@ const Header = (props) => {
                     >
                       <NavLink
                         className="nav-link "
-                        to="/a"
-                        href="#"
+                        to="/"
+                       
                         style={({ isActive, isPending, isTransitioning }) => {
                           return {
                             fontWeight: isActive ? "bold" : "",
@@ -94,7 +94,7 @@ const Header = (props) => {
                     >
                       <NavLink
                         className="nav-link "
-                        to="/b"
+                        to="/GioiThieu"
                         href="#"
                         data-bs-dismiss="offcanvas"
                         style={({ isActive, isPending, isTransitioning }) => {
@@ -223,7 +223,7 @@ const Header = (props) => {
                     >
                       <NavLink
                         className="nav-link "
-                        to="/f"
+                        to="/HinhAnh"
                         href="#"
                         style={({ isActive, isPending, isTransitioning }) => {
                           return {
@@ -250,7 +250,7 @@ const Header = (props) => {
                     >
                       <NavLink
                         className="nav-link "
-                        to="/g"
+                        to="/LienHe"
                         href="#"
                         style={({ isActive, isPending, isTransitioning }) => {
                           return {

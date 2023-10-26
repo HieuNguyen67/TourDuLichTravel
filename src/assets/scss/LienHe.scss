@@ -1,0 +1,14 @@
+.boo{
+    height: 100rem;
+}
+@media (max-width: 576px) {
+    .hr {
+            width: 60%;
+        }
+}
+@media (min-width: 1200px) {
+    .hr{
+        width: 16rem;
+        
+    }
+}

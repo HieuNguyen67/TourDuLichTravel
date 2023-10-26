@@ -12,6 +12,7 @@ const ListTour = () => {
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <div className="boxlisttour mx-2 box my-md-0 my-2 shadow-sm  ">
               <div className="pt-md-4">
+                
                 <p
                   className="text-md-center text-start text-light position-relative mx-md-auto mx-2  textshadow mt-5 pt-5 col-md-8 col-10"
                   style={{ lineHeight: "0.8" }}
@@ -31,6 +32,7 @@ const ListTour = () => {
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <div className="boxlisttour mx-2 box1 my-md-0 my-2">
               <div className="pt-md-4">
+
                 <p
                   className="text-md-center text-start text-light position-relative mx-md-auto mx-2  textshadow mt-5 pt-5 col-md-8 col-10"
                   style={{ lineHeight: "0.8" }}

@@ -39,7 +39,7 @@ const SliderTourChinh = () => {
             <Carousel
               responsive={responsive}
               autoPlay={true}
-              autoPlaySpeed={4000}
+             
               swipeable={true}
               draggable={true}
               showDots={false}
