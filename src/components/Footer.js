@@ -84,16 +84,10 @@ const Footer=()=>{
                     </span>
                   </Link>
                   <br />{" "}
-                  <Link className="text-decoration-none black">
+                  <Link className="text-decoration-none black" to="/BangGia">
                     <span style={{ fontSize: "15px" }} className="hover">
                       {">"} Bảng giá
                     </span>
-                  </Link>
-                  <br />{" "}
-                  <Link className="text-decoration-none black">
-                    <span style={{ fontSize: "15px" }} className="hover">
-                      {">"} Đặt tour
-                    </span>{" "}
                   </Link>
                   <br />{" "}
                   <Link className="text-decoration-none black" to="/HinhAnh">
@@ -102,7 +96,7 @@ const Footer=()=>{
                     </span>{" "}
                   </Link>
                   <br />
-                  <Link className="text-decoration-none black">
+                  <Link className="text-decoration-none black" to="/LienHe">
                     <span style={{ fontSize: "15px" }} className="hover">
                       {">"} Liên hệ
                     </span>

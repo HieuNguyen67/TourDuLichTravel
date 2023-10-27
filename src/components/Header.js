@@ -2,14 +2,14 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "../assets/scss/Header.scss";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
 import Logo from "../assets/image/tải_xuống-removebg-preview.png";
-import { useLocation } from "react-router-dom";
+
 import { NavLink } from "react-router-dom";
 import ScrollIndicator from "./ScrollIndicator";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 const Header = (props) => {
@@ -39,7 +39,6 @@ const Header = (props) => {
           <Container className="my-2">
             <NavLink to="/" className=" decorate">
               <Navbar.Brand to="/">
-                
                 <img
                   alt=""
                   src={Logo}
@@ -67,7 +66,6 @@ const Header = (props) => {
                       <NavLink
                         className="nav-link "
                         to="/"
-                       
                         style={({ isActive, isPending, isTransitioning }) => {
                           return {
                             fontWeight: isActive ? "bold" : "",
@@ -115,61 +113,55 @@ const Header = (props) => {
                         <span className="white">GIỚI THIỆU</span>
                       </NavLink>
                     </motion.div>
-                    <motion.div
-                      whileHover={{ scale: 1.2 }}
-                      whileTap={{ scale: 0.8 }}
+
+                    <NavDropdown
+                      title="TOUR"
+                      id="basic-nav-dropdown"
+                      className="backgrounddrop "
                     >
                       <NavLink
-                        className="nav-link "
-                        to="/c"
-                        href="#"
-                        data-bs-dismiss="offcanvas"
-                        style={({ isActive, isPending, isTransitioning }) => {
-                          return {
-                            fontWeight: isActive ? "bold" : "",
-                            background: isActive
-                              ? "linear-gradient(253deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)"
-                              : "",
-                            borderRadius: isActive
-                              ? "30% 70% 70% 30% / 50% 30% 70% 80%"
-                              : "",
-
-                            color: isPending ? "red" : "black",
-                            viewTransitionName: isTransitioning ? "slide" : "",
-                          };
-                        }}
+                        to="/TourTongHop"
+                        className="text-decoration-none"
                       >
-                        <NavDropdown
-                          title="TOUR"
-                          id="basic-nav-dropdown"
-                          className="backgrounddrop "
-                        >
-                          <NavDropdown.Item href="#action/3.1">
-                            <span className="white">MIỀN TÂY TRONG NGÀY</span>
-                          </NavDropdown.Item>
-                          <NavDropdown.Item href="#action/3.1">
-                            <span className="white">MIỀN TÂY</span>
-                          </NavDropdown.Item>
-                          <NavDropdown.Item href="#action/3.2">
-                            <span className="white">SÀI GÒN</span>
-                          </NavDropdown.Item>
-                          <NavDropdown.Item href="#action/3.3">
-                            <span className="white">PHÚ QUỐC</span>
-                          </NavDropdown.Item>
-
-                          <NavDropdown.Item href="#action/3.4">
-                            <span className="white">ĐÀ LẠT</span>
-                          </NavDropdown.Item>
-                        </NavDropdown>
+                        <NavDropdown.Item href="#action/3">
+                          <span className="white">TỔNG HỢP</span>
+                        </NavDropdown.Item>
                       </NavLink>
-                    </motion.div>
+                      <NavLink
+                        to="/TourMienTayTrongNgay"
+                        className="text-decoration-none"
+                      >
+                        <NavDropdown.Item href="#action/3.1">
+                          <span className="white">MIỀN TÂY TRONG NGÀY</span>
+                        </NavDropdown.Item>{" "}
+                      </NavLink>
+                      <NavLink
+                        to="/TourMienTay"
+                        className="text-decoration-none"
+                      >
+                        <NavDropdown.Item href="#action/3.1">
+                          <span className="white">MIỀN TÂY</span>
+                        </NavDropdown.Item>
+                      </NavLink>
+                      <NavDropdown.Item href="#action/3.2">
+                        <span className="white">SÀI GÒN</span>
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action/3.3">
+                        <span className="white">PHÚ QUỐC</span>
+                      </NavDropdown.Item>
+
+                      <NavDropdown.Item href="#action/3.4">
+                        <span className="white">ĐÀ LẠT</span>
+                      </NavDropdown.Item>
+                    </NavDropdown>
+
                     <motion.div
                       whileHover={{ scale: 1.2 }}
                       whileTap={{ scale: 0.8 }}
                     >
                       <NavLink
                         className="nav-link "
-                        to="/d"
+                        to="/BangGia"
                         href="#"
                         style={({ isActive, isPending, isTransitioning }) => {
                           return {
@@ -190,33 +182,7 @@ const Header = (props) => {
                         <span className="white">BẢNG GIÁ</span>
                       </NavLink>
                     </motion.div>
-                    <motion.div
-                      whileHover={{ scale: 1.2 }}
-                      whileTap={{ scale: 0.8 }}
-                    >
-                      <NavLink
-                        className="nav-link "
-                        to="/e"
-                        href="#"
-                        style={({ isActive, isPending, isTransitioning }) => {
-                          return {
-                            fontWeight: isActive ? "bold" : "",
-                            background: isActive
-                              ? "linear-gradient(253deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)"
-                              : "",
-                            borderRadius: isActive
-                              ? "30% 70% 70% 30% / 50% 30% 70% 80%"
-                              : "",
 
-                            color: isPending ? "red" : "black",
-                            viewTransitionName: isTransitioning ? "slide" : "",
-                          };
-                        }}
-                      >
-                        {" "}
-                        <span className="white"> ĐẶT TOUR</span>
-                      </NavLink>
-                    </motion.div>
                     <motion.div
                       whileHover={{ scale: 1.2 }}
                       whileTap={{ scale: 0.8 }}
@@ -278,11 +244,7 @@ const Header = (props) => {
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.8 }}
                       >
-                        <NavLink
-                          href="#"
-                          to="/user"
-                          className="sidebar decorate"
-                        >
+                        <NavLink to="/Login" className="sidebar decorate">
                           <Button className="mx-2 shadow" variant="warning">
                             Login
                           </Button>{" "}
@@ -292,11 +254,7 @@ const Header = (props) => {
                         whileHover={{ scale: 1.2 }}
                         whileTap={{ scale: 0.8 }}
                       >
-                        <NavLink
-                          href=""
-                          className="sidebar decorate "
-                          to="/SignUp"
-                        >
+                        <NavLink className="sidebar decorate " to="/SignUp">
                           <Button className="shadow" variant="secondary">
                             SignUp
                           </Button>{" "}

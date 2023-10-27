@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import "../assets/scss/GioiThieu.scss";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import anh from "../assets/image/ttxvn_2303dulichtphcm1.jpg"
 
 const GioiThieu = () => {
@@ -27,7 +27,7 @@ const GioiThieu = () => {
               </Link>
             </motion.a>
           </p>
-          <h3>VỀ CHÚNG TÔI</h3>
+          <h3 style={{ textShadow: "5px 5px 4px lightgrey" }}>VỀ CHÚNG TÔI</h3>
           <div className="container col-11  my-5 ">
             <p>
               <h3 className="text-center fw-bold ">
@@ -117,7 +117,6 @@ const GioiThieu = () => {
             </p>
           </div>
         </Container>
-        
       </motion.div>
     </>
   );
