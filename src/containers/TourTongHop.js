@@ -37,14 +37,12 @@ const TourTongHop = () => {
           <Row className="d-flex">
             <Col />
             <Col className="col-10 col-md-8">
-              
-                <h1
-                  className="text-center fonttt "
-                  style={{ textShadow: "5px 5px 4px lightgrey" }}
-                >
-                  TOUR
-                </h1>
-              
+              <h1
+                className="text-center fonttt "
+                style={{ textShadow: "5px 5px 4px lightgrey" }}
+              >
+                TOUR
+              </h1>
             </Col>
             <Col />
           </Row>
@@ -79,22 +77,24 @@ const TourTongHop = () => {
             <Col className="col-12 col-md-4 my-2 my-md-0">
               {" "}
               <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Card className="col-11 mx-auto shadow">
-                  <Card.Img variant="top" src={pic2} className="sizeimg1" />
-                  <Card.Body>
-                    <Card.Title className="">
-                      TOUR MIỀN TÂY 3 NGÀY 2 ĐÊM
-                      <br />
-                      &nbsp;
-                    </Card.Title>
-                    <Card.Text className="fs-5">
-                      Giá gốc:{" "}
-                      <strong className="text-danger">3.080.000VNĐ</strong>
-                    </Card.Text>
-                    <hr />
-                    <Button variant="warning">ĐẶT TOUR</Button>
-                  </Card.Body>
-                </Card>
+                <Link to="/TourMienTay3Ngay2Dem" className="text-decoration-none">
+                  <Card className="col-11 mx-auto shadow">
+                    <Card.Img variant="top" src={pic2} className="sizeimg1" />
+                    <Card.Body>
+                      <Card.Title className="">
+                        TOUR MIỀN TÂY 3 NGÀY 2 ĐÊM
+                        <br />
+                        &nbsp;
+                      </Card.Title>
+                      <Card.Text className="fs-5">
+                        Giá gốc:{" "}
+                        <strong className="text-danger">3.080.000VNĐ</strong>
+                      </Card.Text>
+                      <hr />
+                      <Button variant="warning">ĐẶT TOUR</Button>
+                    </Card.Body>
+                  </Card>
+                </Link>
               </motion.div>
             </Col>
             <Col className="col-12 col-md-4 my-2 my-md-0">

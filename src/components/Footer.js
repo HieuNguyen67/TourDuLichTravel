@@ -78,7 +78,7 @@ const Footer=()=>{
                     </span>
                   </Link>
                   <br />
-                  <Link className="text-decoration-none black">
+                  <Link className="text-decoration-none black" to="/TourTongHop">
                     <span style={{ fontSize: "15px" }} className="hover">
                       {">"} Tour
                     </span>

@@ -8,7 +8,7 @@ import Card from "react-bootstrap/Card";
 import "react-multi-carousel/lib/styles.css";
 import "../assets/scss/SliderTourChinh.scss";
 import Button from "react-bootstrap/Button";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const responsive = {
@@ -39,7 +39,6 @@ const SliderTourChinh = () => {
             <Carousel
               responsive={responsive}
               autoPlay={true}
-             
               swipeable={true}
               draggable={true}
               showDots={false}
@@ -54,34 +53,36 @@ const SliderTourChinh = () => {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <Row className="position-relative d-flex  flex-column text-center mt-5 pt-5">
-                      <Col className="col-12 mx-auto mt-md-5 mt-3 pt-2 pt-md-5">
-                        <p
-                          className="text-light textshadow2"
-                          style={{ lineHeight: "1" }}
-                        >
-                          <h1>TOUR 3 NGÀY 2 ĐÊM</h1>
+                    <Link to="/TourMienTay3Ngay2Dem" className="text-decoration-none">
+                      <Row className="position-relative d-flex  flex-column text-center mt-5 pt-5">
+                        <Col className="col-12 mx-auto mt-md-5 mt-3 pt-2 pt-md-5">
+                          <p
+                            className="text-light textshadow2"
+                            style={{ lineHeight: "1" }}
+                          >
+                            <h1>TOUR 3 NGÀY 2 ĐÊM</h1>
 
-                          <p className="text-light ">
-                            MỸ THO - BẾN TRE - CẦN THƠ - CHÂU ĐỐC
+                            <p className="text-light ">
+                              MỸ THO - BẾN TRE - CẦN THƠ - CHÂU ĐỐC
+                            </p>
+                            <p className="text-light fs-3">
+                              Giá : <b>3.080.000 VNĐ</b>
+                            </p>
                           </p>
-                          <p className="text-light fs-3">
-                            Giá : <b>3.080.000 VNĐ</b>
-                          </p>
-                        </p>
-                      </Col>
+                        </Col>
 
-                      <Col>
-                        <motion.div
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                        >
-                          <Button variant="outline-light" className="shadow">
-                            ĐẶT NGAY
-                          </Button>
-                        </motion.div>
-                      </Col>
-                    </Row>
+                        <Col>
+                          <motion.div
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                          >
+                            <Button variant="outline-light" className="shadow">
+                              ĐẶT NGAY
+                            </Button>
+                          </motion.div>
+                        </Col>
+                      </Row>
+                    </Link>
                   </motion.div>
                 </div>
               </div>
