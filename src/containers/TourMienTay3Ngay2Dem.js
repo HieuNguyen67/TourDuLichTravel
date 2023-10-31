@@ -25,7 +25,7 @@ import picture5 from "../assets/image/picture-5.png";
 import picture6 from "../assets/image/picture-6.png";
 import picture7 from "../assets/image/picture-7.png";
 import Lightbox from "yet-another-react-lightbox";
-
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import React from "react";
 
 const TourMienTay3Ngay2Dem = () => {
@@ -101,7 +101,9 @@ const TourMienTay3Ngay2Dem = () => {
               </p>
             </Col>
             <Col className="col-10 col-md-8">
-              <Button variant="warning">ĐẶT NGAY</Button>{" "}
+              <Link to="/DetailTourMienTay3Ngay2Dem">
+                <Button variant="warning">ĐẶT NGAY</Button>{" "}
+              </Link>
             </Col>
           </Row>
         </div>
@@ -177,8 +179,8 @@ const TourMienTay3Ngay2Dem = () => {
                         mệnh danh là “con đường nước” vùng Tây sông Hậu.
                         <br />
                         <span className="fw-bold">Buổi chiều: </span> Đến Châu
-                        Đốc du khách nhận phòng khách sạn và dùng cơm tối > Tham
-                        quan, khám phá Châu Đốc về đêm.
+                        Đốc du khách nhận phòng khách sạn và dùng cơm tối {">"}{" "}
+                        Tham quan, khám phá Châu Đốc về đêm.
                       </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="2">
@@ -241,6 +243,7 @@ const TourMienTay3Ngay2Dem = () => {
                     src={KhachSan}
                     style={{ width: "30px", height: "25px" }}
                   />{" "}
+                  <StarBorderPurple500Icon />
                   <StarBorderPurple500Icon />
                   <StarBorderPurple500Icon />
                 </Col>
@@ -449,6 +452,7 @@ const TourMienTay3Ngay2Dem = () => {
               </Row>
             </Tab>
           </Tabs>
+          <h3 className="text-start text-info"><CalendarMonthIcon/> Ngày khởi hành khác</h3>
         </div>
       </Container>
     </>
