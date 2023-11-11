@@ -1,8 +1,7 @@
 {
   "name": "do-an-chuyen-nganh",
   "version": "0.1.0",
-  	
-"homepage": "https://github.com/HieuNguyen67/TourDuLichTravel",
+  "homepage": "https://github.com/HieuNguyen67/TourDuLichTravel/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
