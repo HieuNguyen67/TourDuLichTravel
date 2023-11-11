@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import { motion } from "framer-motion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
@@ -48,7 +48,10 @@ const TourMienTay3Ngay2Dem = () => {
         <p className="mt-4 d-flex text-center">
           <p>
             <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
-              <Link to="/" className="text-decoration-none text-dark">
+              <Link
+                to="/TourDuLichTravel"
+                className="text-decoration-none text-dark"
+              >
                 <span>Trang chủ</span>
               </Link>{" "}
             </motion.a>
@@ -452,7 +455,9 @@ const TourMienTay3Ngay2Dem = () => {
               </Row>
             </Tab>
           </Tabs>
-          <h3 className="text-start text-info"><CalendarMonthIcon/> Ngày khởi hành khác</h3>
+          <h3 className="text-start text-info">
+            <CalendarMonthIcon /> Ngày khởi hành khác
+          </h3>
         </div>
       </Container>
     </>

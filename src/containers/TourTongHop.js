@@ -21,7 +21,10 @@ const TourTongHop = () => {
       <Container>
         <p className="mt-4 d-flex">
           <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
-            <Link to="/" className="text-decoration-none text-dark">
+            <Link
+              to="/TourDuLichTravel"
+              className="text-decoration-none text-dark"
+            >
               <span>Trang chủ &nbsp;</span>
             </Link>{" "}
           </motion.a>
@@ -77,7 +80,10 @@ const TourTongHop = () => {
             <Col className="col-12 col-md-4 my-2 my-md-0">
               {" "}
               <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Link to="/TourMienTay3Ngay2Dem" className="text-decoration-none">
+                <Link
+                  to="/TourMienTay3Ngay2Dem"
+                  className="text-decoration-none"
+                >
                   <Card className="col-11 mx-auto shadow">
                     <Card.Img variant="top" src={pic2} className="sizeimg1" />
                     <Card.Body>

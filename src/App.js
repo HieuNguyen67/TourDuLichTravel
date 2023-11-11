@@ -16,6 +16,7 @@ import TourMienTayTrongNgay from "./containers/TourMienTayTrongNgay";
 import TourMienTay from "./containers/TourMienTay";
 import TourMienTay3Ngay2Dem from "./containers/TourMienTay3Ngay2Dem";
 import DetailTourMienTay3Ngay2Dem from "./containers/DetailTourMienTay3Ngay2Dem";
+
 function App() {
   
   return (
@@ -23,9 +24,10 @@ function App() {
       <BackToTop />
       <div>
         {" "}
-        <Header />
+        <Header /> 
         <Routes>
-          <Route path="/" element={<Home />} />
+         
+          <Route path="/TourDuLichTravel" element={<Home />} />
           <Route path="/GioiThieu" element={<GioiThieu />} />
           <Route path="/HinhAnh" element={<HinhAnh />} />
           <Route path="/LienHe" element={<LienHe />} />
@@ -38,7 +40,8 @@ function App() {
           <Route path="/TourMienTay" element={<TourMienTay />} />
           <Route path="/TourMienTay3Ngay2Dem" element={<TourMienTay3Ngay2Dem />} />
           <Route path="/DetailTourMienTay3Ngay2Dem" element={<DetailTourMienTay3Ngay2Dem />} />
-        </Routes>
+         
+        </Routes> 
         <Footer />
       </div>
     </>

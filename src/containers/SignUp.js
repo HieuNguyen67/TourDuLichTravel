@@ -33,7 +33,7 @@ const SignUp = () => {
             <Row>
               <Col></Col>
               <Col className="col-10 ">
-                <h2 className="text-center text-break fw-bold " >Đăng Ký</h2>
+                <h2 className="text-center text-break fw-bold ">Đăng Ký</h2>
               </Col>
               <Col></Col>
             </Row>
@@ -84,7 +84,10 @@ const SignUp = () => {
               <Col></Col>
               <Col className="col-12">
                 <h6 className="text-center text-break  ">
-                  <NavLink to="/" className=" link-dark text-danger decorate ">
+                  <NavLink
+                    to="/TourDuLichTravel"
+                    className=" link-dark text-danger decorate "
+                  >
                     <ArrowBackIosIcon sx={{ fontSize: 20 }} />
                     Go back
                   </NavLink>

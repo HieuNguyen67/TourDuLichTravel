@@ -66,7 +66,10 @@ const Footer=()=>{
                 <p className="lh-lg ps-md-5">
                   <strong>GIỚI THIỆU</strong>
                   <br />
-                  <Link className="text-decoration-none black" to="/">
+                  <Link
+                    className="text-decoration-none black"
+                    to="/TourDuLichTravel"
+                  >
                     <span style={{ fontSize: "15px" }} className="hover">
                       {">"} Trang chủ
                     </span>
@@ -78,7 +81,10 @@ const Footer=()=>{
                     </span>
                   </Link>
                   <br />
-                  <Link className="text-decoration-none black" to="/TourTongHop">
+                  <Link
+                    className="text-decoration-none black"
+                    to="/TourTongHop"
+                  >
                     <span style={{ fontSize: "15px" }} className="hover">
                       {">"} Tour
                     </span>

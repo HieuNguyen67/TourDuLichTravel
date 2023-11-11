@@ -37,8 +37,8 @@ const Header = (props) => {
           {" "}
           {/* #f8f9fa */}
           <Container className="my-2">
-            <NavLink to="/" className=" decorate">
-              <Navbar.Brand to="/">
+            <NavLink to="/TourDuLichTravel" className=" decorate">
+              <Navbar.Brand to="/TourDuLichTravel">
                 <img
                   alt=""
                   src={Logo}
@@ -65,7 +65,7 @@ const Header = (props) => {
                     >
                       <NavLink
                         className="nav-link "
-                        to="/"
+                        to="/TourDuLichTravel"
                         style={({ isActive, isPending, isTransitioning }) => {
                           return {
                             fontWeight: isActive ? "bold" : "",

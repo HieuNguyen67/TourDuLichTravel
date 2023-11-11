@@ -10,7 +10,7 @@ import InfoIcon from "@mui/icons-material/Info";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import PriceCalculator from "../components/PriceCalculator";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const DetailTourMienTay3Ngay2Dem = () => {
