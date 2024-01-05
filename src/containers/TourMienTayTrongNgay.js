@@ -10,10 +10,14 @@ import pic1 from "../assets/image/Pasar_terapung.jpg";
 import pic2 from "../assets/image/rung-tra-su-an-giang.jpg";
 import pic3 from "../assets/image/phu-quoc-1.jpg";
 import "../assets/scss/TourTongHop.scss";
+import Header from "../components/Header";
+import BackToTop from "../components/BackToTop";
 
 const TourMienTayTrongNgay = () => {
   return (
     <>
+      <BackToTop />
+      <Header />
       <div className="boxGioiThieu"></div>
 
       <Container>

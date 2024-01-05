@@ -27,6 +27,8 @@ import picture7 from "../assets/image/picture-7.png";
 import Lightbox from "yet-another-react-lightbox";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import React from "react";
+import Header from "../components/Header";
+import BackToTop from "../components/BackToTop";
 
 const TourMienTay3Ngay2Dem = () => {
    const [open, setOpen] = React.useState(false);
@@ -42,6 +44,8 @@ const TourMienTay3Ngay2Dem = () => {
        { src: picture7 },];
   return (
     <>
+      <BackToTop />
+      <Header />
       <div className="boxGioiThieu"></div>
 
       <Container>
@@ -364,7 +368,7 @@ const TourMienTay3Ngay2Dem = () => {
                   >
                     <img
                       src={picture1}
-                      className="sizepicture w-100 rounded-3 shadow"
+                      className="sizepicture w-100 rounded-3 shadow img1"
                     />
                   </motion.div>
                 </Col>
@@ -377,7 +381,7 @@ const TourMienTay3Ngay2Dem = () => {
                       >
                         <img
                           src={picture2}
-                          className="sizepicture1 w-100 rounded-3 shadow"
+                          className="sizepicture1 w-100 rounded-3 shadow img1"
                           onClick={handleOpen}
                         />
                       </motion.div>
@@ -389,7 +393,7 @@ const TourMienTay3Ngay2Dem = () => {
                       >
                         <img
                           src={picture3}
-                          className="sizepicture1 w-100 rounded-3 shadow"
+                          className="sizepicture1 w-100 rounded-3 shadow img1"
                           onClick={handleOpen}
                         />
                       </motion.div>
@@ -405,7 +409,7 @@ const TourMienTay3Ngay2Dem = () => {
                       >
                         <img
                           src={picture4}
-                          className="sizepicture1 w-100 rounded-3 shadow"
+                          className="sizepicture1 w-100 rounded-3 shadow img1"
                           onClick={handleOpen}
                         />
                       </motion.div>
@@ -417,14 +421,14 @@ const TourMienTay3Ngay2Dem = () => {
                       >
                         <img
                           src={picture5}
-                          className="sizepicture1 w-100 rounded-3 shadow"
+                          className="sizepicture1 w-100 rounded-3 shadow img1"
                           onClick={handleOpen}
                         />
                       </motion.div>
                     </Col>
                   </Row>
                 </Col>
-                <Col className="col-md-2   col-6 px-1 py-1">
+                <Col className="col-md-2   col-6 px-1 py-1 img1">
                   <Row className="d-flex flex-column">
                     <Col className="pb-1">
                       <motion.div

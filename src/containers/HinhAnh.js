@@ -8,10 +8,14 @@ import Col from "react-bootstrap/Col";
 import "yet-another-react-lightbox/styles.css";
 import React from "react";
 import AlbumPicture from "../components/AlbumPicture";
+import Header from "../components/Header";
+import BackToTop from "../components/BackToTop";
 
 const HinhAnh = () => {
   return (
     <>
+      <BackToTop />
+      <Header />
       <div className="boxGioiThieu"></div>
       <motion.div
         initial={{ opacity: 0, y: 98 }}

@@ -3,15 +3,28 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { useState } from "react";
+
 import LoginIcon from "@mui/icons-material/Login";
 import { motion, useAnimation } from "framer-motion";
-const Login = () => {
-    const [validated, setValidated] = useState(false);
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { useAuth } from "./AuthContext"; 
+import Header from "../components/Header";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import BackToTop from "../components/BackToTop";
 
-    const handleSubmit = (event) => {
+ // Import useHistory
+
+const Login = () => {
+      
+    const [validated, setValidated] = useState(false);
+const navigate = useNavigate();
+
+ 
+    const handleSubmit1 = (event) => {
       const form = event.currentTarget;
       if (form.checkValidity() === false) {
         event.preventDefault();
@@ -20,8 +33,46 @@ const Login = () => {
 
       setValidated(true);
     };
+   const [emailOrUsername, setEmailOrUsername] = useState("");
+   const [password, setPassword] = useState("");
+   const { login } = useAuth();
+
+   const handleLogin = async () => {
+     try {
+       const response = await axios.post(
+         "http://localhost:5020/v1/api/admin/login/user",
+         {
+           emailOrUsername,
+           password,
+         }
+       );
+       const data = response.data;
+
+       if (data.success) {
+         login(data.user, data.token);
+         toast.success("Đăng nhập thành công !");
+
+         // Chuyển hướng đến trang login sau 3 giây
+         setTimeout(() => {
+           navigate("/TourDuLichTravel");
+         }, 1500);
+         
+          
+        
+       } else {
+        toast.error("Sai thông tin đăng nhập. Vui lòng kiểm tra lại !");
+      
+       }
+     } catch (error) {
+       toast.error("Sai thông tin đăng nhập. Vui lòng kiểm tra lại !");
+     }
+   };
+    
   return (
     <>
+      <BackToTop />
+      <ToastContainer />
+      <Header />
       <div className="boxGioiThieu"></div>
       <motion.div
         initial={{ opacity: 0, y: 98 }}
@@ -33,7 +84,7 @@ const Login = () => {
             <Row>
               <Col></Col>
               <Col className="col-10 ">
-                <h2 className="text-center text-break fw-bold " >Đăng Nhập</h2>
+                <h2 className="text-center text-break fw-bold ">Đăng Nhập</h2>
               </Col>
               <Col></Col>
             </Row>
@@ -41,30 +92,47 @@ const Login = () => {
         </Container>
         <br />
         <Container className="mb-5 pb-md-5">
-          <Form
+          <div
             className="col-md-5 col-12 mx-auto"
             noValidate
             validated={validated}
-            onSubmit={handleSubmit}
           >
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>
                 UserName <span className="text-danger">*</span>
               </Form.Label>
-              <Form.Control type="text" placeholder="UserName" required />
+              <Form.Control
+                type="text"
+                placeholder="UserName"
+                required
+                value={emailOrUsername}
+                onChange={(e) => setEmailOrUsername(e.target.value)}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
               <Form.Label>
                 Password <span className="text-danger">*</span>
               </Form.Label>
-              <Form.Control type="password" placeholder="Password" required />
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                required
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </Form.Group>
 
-            <Button variant="warning" type="submit" className="col-12 mt-4">
+            <Button
+              variant="warning"
+              type="submit"
+              className="col-12 mt-4"
+              onClick={handleLogin}
+            >
               Đăng Nhập <LoginIcon />
             </Button>
-          </Form>
+          </div>
 
           <br />
           <div>
@@ -72,7 +140,10 @@ const Login = () => {
               <Col></Col>
               <Col className="col-12">
                 <h6 className="text-center text-break  ">
-                  <NavLink to="/TourDuLichTravel" className=" link-dark text-danger decorate ">
+                  <NavLink
+                    to="/TourDuLichTravel"
+                    className=" link-dark text-danger decorate "
+                  >
                     <ArrowBackIosIcon sx={{ fontSize: 20 }} />
                     Go back
                   </NavLink>

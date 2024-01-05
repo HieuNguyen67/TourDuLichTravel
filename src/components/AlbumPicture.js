@@ -65,7 +65,7 @@ const AlbumPicture = () => {
             >
               <img
                 src={picture1}
-                className="sizepicture w-100 rounded-3 shadow"
+                className="sizepicture w-100 rounded-3 shadow img1"
               />
             </motion.div>
           </Col>
@@ -78,7 +78,7 @@ const AlbumPicture = () => {
                 >
                   <img
                     src={picture2}
-                    className="sizepicture1 w-100 rounded-3 shadow"
+                    className="sizepicture1 w-100 rounded-3 shadow  img1"
                     onClick={handleOpen}
                   />
                 </motion.div>
@@ -90,7 +90,7 @@ const AlbumPicture = () => {
                 >
                   <img
                     src={picture3}
-                    className="sizepicture1 w-100 rounded-3 shadow"
+                    className="sizepicture1 w-100 rounded-3 shadow  img1"
                     onClick={handleOpen}
                   />
                 </motion.div>
@@ -106,7 +106,7 @@ const AlbumPicture = () => {
                 >
                   <img
                     src={picture4}
-                    className="sizepicture1 w-100 rounded-3 shadow"
+                    className="sizepicture1 w-100 rounded-3 shadow  img1"
                     onClick={handleOpen}
                   />
                 </motion.div>
@@ -118,7 +118,7 @@ const AlbumPicture = () => {
                 >
                   <img
                     src={picture5}
-                    className="sizepicture1 w-100 rounded-3 shadow"
+                    className="sizepicture1 w-100 rounded-3 shadow  img1"
                     onClick={handleOpen}
                   />
                 </motion.div>
@@ -134,7 +134,7 @@ const AlbumPicture = () => {
                 >
                   <img
                     src={picture6}
-                    className="sizepicture1 w-100 rounded-3 shadow"
+                    className="sizepicture1 w-100 rounded-3 shadow  img1"
                     onClick={handleOpen}
                   />
                 </motion.div>
@@ -146,7 +146,7 @@ const AlbumPicture = () => {
                 >
                   <img
                     src={picture7}
-                    className="sizepicture1 w-100 rounded-3 shadow"
+                    className="sizepicture1 w-100 rounded-3 shadow  img1"
                     onClick={handleOpen}
                   />
                 </motion.div>
@@ -159,7 +159,7 @@ const AlbumPicture = () => {
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <img
                 src={picture8}
-                className="sizepicture1 w-100 rounded-3 px-1 shadow"
+                className="sizepicture1 w-100 rounded-3 px-1 shadow  img1"
                 onClick={handleOpen}
               />
             </motion.div>
@@ -168,7 +168,7 @@ const AlbumPicture = () => {
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <img
                 src={picture9}
-                className="sizepicture1 w-100 rounded-3 px-1 shadow"
+                className="sizepicture1 w-100 rounded-3 px-1 shadow  img1"
                 onClick={handleOpen}
               />
             </motion.div>
@@ -184,7 +184,7 @@ const AlbumPicture = () => {
                 >
                   <img
                     src={picture10}
-                    className="sizepicture1 w-100 rounded-3 shadow"
+                    className="sizepicture1 w-100 rounded-3 shadow  img1"
                     onClick={handleOpen}
                   />
                 </motion.div>
@@ -196,7 +196,7 @@ const AlbumPicture = () => {
                 >
                   <img
                     src={picture11}
-                    className="sizepicture1 w-100 rounded-3 shadow"
+                    className="sizepicture1 w-100 rounded-3 shadow  img1"
                     onClick={handleOpen}
                   />
                 </motion.div>
@@ -212,7 +212,7 @@ const AlbumPicture = () => {
                 >
                   <img
                     src={picture12}
-                    className="sizepicture1 w-100 rounded-3 shadow"
+                    className="sizepicture1 w-100 rounded-3 shadow  img1"
                     onClick={handleOpen}
                   />
                 </motion.div>
@@ -224,7 +224,7 @@ const AlbumPicture = () => {
                 >
                   <img
                     src={picture13}
-                    className="sizepicture1 w-100 rounded-3 shadow"
+                    className="sizepicture1 w-100 rounded-3 shadow  img1"
                     onClick={handleOpen}
                   />
                 </motion.div>
@@ -240,7 +240,7 @@ const AlbumPicture = () => {
                 >
                   <img
                     src={picture14}
-                    className="sizepicture1 w-100 rounded-3 shadow"
+                    className="sizepicture1 w-100 rounded-3 shadow  img1"
                     onClick={handleOpen}
                   />
                 </motion.div>
@@ -252,7 +252,7 @@ const AlbumPicture = () => {
                 >
                   <img
                     src={picture15}
-                    className="sizepicture1 w-100 rounded-3 shadow"
+                    className="sizepicture1 w-100 rounded-3 shadow  img1"
                     onClick={handleOpen}
                   />
                 </motion.div>
@@ -263,7 +263,7 @@ const AlbumPicture = () => {
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
               <img
                 src={picture16}
-                className="sizepicture w-100 rounded-3 shadow"
+                className="sizepicture w-100 rounded-3 shadow  img1"
                 onClick={handleOpen}
               />
             </motion.div>

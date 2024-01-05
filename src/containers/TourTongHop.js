@@ -1,21 +1,60 @@
 import Container from "react-bootstrap/Container";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../assets/scss/GioiThieu.scss";
 import { motion } from "framer-motion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import pic1 from "../assets/image/Pasar_terapung.jpg"
-import pic2 from "../assets/image/rung-tra-su-an-giang.jpg";
-import pic3 from "../assets/image/phu-quoc-1.jpg";
 import "../assets/scss/TourTongHop.scss"
+import Header from "../components/Header";
+import BackToTop from "../components/BackToTop";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Spinner from "react-bootstrap/Spinner";
 
 
 
 const TourTongHop = () => {
+   const [tours, setTours] = useState([]);
+   const [loading, setLoading] = useState(true);
+   useEffect(() => {
+     // Gọi API để lấy danh sách tour từ backend
+     const fetchTours = async () => {
+       try {
+         const response = await axios.get(
+           "http://localhost:5020/v1/api/admin/get-tours"
+         );
+         setTours(response.data);
+         setLoading(false);
+       } catch (error) {
+         console.error("Error fetching tours:", error);
+       }
+     };
+
+     fetchTours();
+   }, []);
+   const formatCurrency = (price) => {
+     // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
+     const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
+
+     // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
+     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
+       currency: "VND",
+     });
+
+     // Thêm chữ "VNĐ" vào cuối chuỗi
+     return formattedPrice + " VNĐ";
+   };
+   const handleDetail = (tourID) => {
+     navigate(`/TourDuLichTravel/admin/sua-image-tour/${tourID}`);
+   };
+     const navigate = useNavigate();
+     
   return (
     <>
+      <BackToTop />
+      <Header />
       <div className="boxGioiThieu"></div>
 
       <Container>
@@ -50,217 +89,62 @@ const TourTongHop = () => {
             <Col />
           </Row>
         </div>
-        <div>
-          <Row>
-            <Col className="col-12 col-md-4 my-2 my-md-0">
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                {" "}
-                <Card className="col-11 mx-auto shadow">
-                  <Card.Img
-                    variant="top"
-                    src={pic1}
-                    className="w-100 sizeimg1"
-                  />
-                  <Card.Body>
-                    <Card.Title>
-                      TOUR MIỀN TÂY 2 NGÀY 1 ĐÊM <br />
-                      &nbsp;
-                    </Card.Title>
-                    <Card.Text className="fs-5">
-                      Giá gốc:{" "}
-                      <strong className="text-danger">1.550.000VNĐ</strong>
-                    </Card.Text>
-                    <hr />
+        {loading ? (
+          <h2>
+            {" "}
+            <Spinner animation="grow" variant="dark" />
+            Loading...
+          </h2>
+        ) : (
+          <Row className="row-cols-3 d-flex flex-row">
+            {tours.map((tour) => (
+              <Col key={tour.tourID} className="mb-5">
+                <Link to={`/tour/${tour.id}`} className="text-decoration-none">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    {" "}
+                    <Card className="col-11 mx-auto shadow">
+                      <Card.Img
+                        variant="top"
+                        src={`data:image/jpeg;base64,${tour.image.toString(
+                          "base64"
+                        )}`}
+                        className="w-100 sizeimg1"
+                        alt={tour.name}
+                      />
+                      <Card.Body>
+                        <Card.Title>
+                          {tour.name}
+                          &nbsp;
+                        </Card.Title>
+                        <Card.Text className="fs-5">
+                          Giá gốc:{" "}
+                          <strong className="text-danger">
+                            {formatCurrency(tour.price)}
+                          </strong>
+                        </Card.Text>
+                        <p className="text-secondary fw-bold">
+                          {new Date(tour.start_date).toLocaleDateString()} -
+                          &nbsp;
+                          <span>
+                            {new Date(tour.end_date).toLocaleDateString()}
+                          </span>
+                        </p>
 
-                    <Button variant="warning">ĐẶT TOUR</Button>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
-            <Col className="col-12 col-md-4 my-2 my-md-0">
-              {" "}
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Link
-                  to="/TourMienTay3Ngay2Dem"
-                  className="text-decoration-none"
-                >
-                  <Card className="col-11 mx-auto shadow">
-                    <Card.Img variant="top" src={pic2} className="sizeimg1" />
-                    <Card.Body>
-                      <Card.Title className="">
-                        TOUR MIỀN TÂY 3 NGÀY 2 ĐÊM
-                        <br />
-                        &nbsp;
-                      </Card.Title>
-                      <Card.Text className="fs-5">
-                        Giá gốc:{" "}
-                        <strong className="text-danger">3.080.000VNĐ</strong>
-                      </Card.Text>
-                      <hr />
-                      <Button variant="warning">ĐẶT TOUR</Button>
-                    </Card.Body>
-                  </Card>
+                        <hr />
+                        <Button variant="warning">ĐẶT TOUR</Button>
+                      </Card.Body>
+                    </Card>
+                  </motion.div>
                 </Link>
-              </motion.div>
-            </Col>
-            <Col className="col-12 col-md-4 my-2 my-md-0">
-              {" "}
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Card className="col-11 mx-auto shadow">
-                  <Card.Img variant="top" src={pic3} className="sizeimg1" />
-                  <Card.Body>
-                    <Card.Title>
-                      TOUR 3 NGÀY 2 ĐÊM: ĐẢO NGỌC PHÚ QUỐC
-                    </Card.Title>
-                    <Card.Text className="fs-5">
-                      Giá gốc:{" "}
-                      <strong className="text-danger">3.080.000VNĐ</strong>
-                    </Card.Text>
-                    <hr />
-                    <Button variant="warning">ĐẶT TOUR</Button>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
+              </Col>
+            ))}
           </Row>
-        </div>
-        <div className="mt-md-5">
-          <Row>
-            <Col className="col-12 col-md-4 my-2 my-md-0">
-              {" "}
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Card className="col-11 mx-auto shadow">
-                  <Card.Img
-                    variant="top"
-                    src={pic1}
-                    className="w-100 sizeimg1"
-                  />
-                  <Card.Body>
-                    <Card.Title>
-                      TOUR MIỀN TÂY 2 NGÀY 1 ĐÊM <br />
-                      &nbsp;
-                    </Card.Title>
-                    <Card.Text className="fs-5">
-                      Giá gốc:{" "}
-                      <strong className="text-danger">1.550.000VNĐ</strong>
-                    </Card.Text>
-                    <hr />
-                    <Button variant="warning">ĐẶT TOUR</Button>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
-            <Col className="col-12 col-md-4 my-2 my-md-0">
-              {" "}
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Card className="col-11 mx-auto shadow">
-                  <Card.Img variant="top" src={pic2} className="sizeimg1" />
-                  <Card.Body>
-                    <Card.Title className="">
-                      TOUR MIỀN TÂY 3 NGÀY 2 ĐÊM
-                      <br />
-                      &nbsp;
-                    </Card.Title>
-                    <Card.Text className="fs-5">
-                      Giá gốc:{" "}
-                      <strong className="text-danger">3.080.000VNĐ</strong>
-                    </Card.Text>
-                    <hr />
-                    <Button variant="warning">ĐẶT TOUR</Button>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
-            <Col className="col-12 col-md-4 my-2 my-md-0">
-              {" "}
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Card className="col-11 mx-auto shadow">
-                  <Card.Img variant="top" src={pic3} className="sizeimg1" />
-                  <Card.Body>
-                    <Card.Title>
-                      TOUR 3 NGÀY 2 ĐÊM: ĐẢO NGỌC PHÚ QUỐC
-                    </Card.Title>
-                    <Card.Text className="fs-5">
-                      Giá gốc:{" "}
-                      <strong className="text-danger">3.080.000VNĐ</strong>
-                    </Card.Text>
-                    <hr />
-                    <Button variant="warning">ĐẶT TOUR</Button>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
-          </Row>
-        </div>
-        <div className="mt-md-5">
-          <Row>
-            <Col className="col-12 col-md-4 my-2 my-md-0">
-              {" "}
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Card className="col-11 mx-auto shadow">
-                  <Card.Img
-                    variant="top"
-                    src={pic1}
-                    className="w-100 sizeimg1"
-                  />
-                  <Card.Body>
-                    <Card.Title>
-                      TOUR MIỀN TÂY 2 NGÀY 1 ĐÊM <br />
-                      &nbsp;
-                    </Card.Title>
-                    <Card.Text className="fs-5">
-                      Giá gốc:{" "}
-                      <strong className="text-danger">1.550.000VNĐ</strong>
-                    </Card.Text>
-                    <hr />
-                    <Button variant="warning">ĐẶT TOUR</Button>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
-            <Col className="col-12 col-md-4 my-2 my-md-0">
-              {" "}
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Card className="col-11 mx-auto shadow">
-                  <Card.Img variant="top" src={pic2} className="sizeimg1" />
-                  <Card.Body>
-                    <Card.Title className="">
-                      TOUR MIỀN TÂY 3 NGÀY 2 ĐÊM
-                      <br />
-                      &nbsp;
-                    </Card.Title>
-                    <Card.Text className="fs-5">
-                      Giá gốc:{" "}
-                      <strong className="text-danger">3.080.000VNĐ</strong>
-                    </Card.Text>
-                    <hr />
-                    <Button variant="warning">ĐẶT TOUR</Button>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
-            <Col className="col-12 col-md-4 my-2 my-md-0">
-              {" "}
-              <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Card className="col-11 mx-auto shadow">
-                  <Card.Img variant="top" src={pic3} className="sizeimg1" />
-                  <Card.Body>
-                    <Card.Title>
-                      TOUR 3 NGÀY 2 ĐÊM: ĐẢO NGỌC PHÚ QUỐC
-                    </Card.Title>
-                    <Card.Text className="fs-5">
-                      Giá gốc:{" "}
-                      <strong className="text-danger">3.080.000VNĐ</strong>
-                    </Card.Text>
-                    <hr />
-                    <Button variant="warning">ĐẶT TOUR</Button>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
-          </Row>
-        </div>
-        <Row className="mt-5">
+        )}
+
+        {/* <Row className="mt-5">
           <Col />
           <Col className="col-md-1 col-4">
             <nav aria-label="..." className="shadow-sm">
@@ -277,7 +161,7 @@ const TourTongHop = () => {
             </nav>
           </Col>{" "}
           <Col />
-        </Row>
+        </Row> */}
       </Container>
     </>
   );

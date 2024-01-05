@@ -1,14 +1,14 @@
 import "../assets/scss/LienHe.scss"
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
-
+import Header from "../components/Header";
+import BackToTop from "../components/BackToTop";
 
 const LienHe=()=>{
     const [validated, setValidated] = useState(false);
@@ -24,6 +24,8 @@ const LienHe=()=>{
     };
     return (
       <>
+        <BackToTop />
+        <Header />
         <div className="boxGioiThieu"></div>
 
         <motion.div

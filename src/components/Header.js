@@ -7,12 +7,17 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
 import Logo from "../assets/image/tải_xuống-removebg-preview.png";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ScrollIndicator from "./ScrollIndicator";
 import { motion } from "framer-motion";
 import NavDropdown from "react-bootstrap/NavDropdown";
-
+import { useAuth } from "../containers/AuthContext";
+import axios from "axios";
 const Header = (props) => {
+     const { isLoggedIn, logout, user } = useAuth();
+
+
+    
   const [colorChange, setColorchange] = useState(false);
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
@@ -22,7 +27,13 @@ const Header = (props) => {
     }
   };
   window.addEventListener("scroll", changeNavbarColor);
+    const navigate = useNavigate();
 
+  const handleEdit = (userID) => {
+    // Xử lý chức năng sửa ở đây, ví dụ: chuyển hướng đến trang sửa thông tin người dùng
+    console.log(`Sửa thông tin của user có ID: ${userID}`);
+    navigate(`/profile/${userID}`);
+  };
   return (
     <>
       {" "}
@@ -240,26 +251,45 @@ const Header = (props) => {
                   </Nav>
                   <div className=" mt-5 mt-md-0 pt-5 pt-md-0">
                     <div className="d-flex flex-grow mx-1 mt-5 mt-md-0 pt-5 pt-md-0">
-                      <motion.div
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 0.8 }}
-                      >
-                        <NavLink to="/Login" className="sidebar decorate">
-                          <Button className="mx-2 shadow" variant="warning">
-                            Login
+                      {isLoggedIn ? (
+                        <>
+                          <motion.div
+                            whileHover={{ scale: 1.2 }}
+                            whileTap={{ scale: 0.8 }}
+                          >
+                            {" "}
+                            <a
+                              onClick={() => handleEdit(user.id)}
+                              style={{ cursor: "pointer" }}
+                            >
+                              <h5 className="text-light me-3 mt-1">
+                                Hi, {user?.username || user?.email}
+                              </h5>{" "}
+                            </a>
+                          </motion.div>
+                          <Button
+                            className="mx-2 shadow"
+                            variant="warning"
+                            onClick={logout}
+                          >
+                            Logout
                           </Button>{" "}
-                        </NavLink>
-                      </motion.div>
-                      <motion.div
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 0.8 }}
-                      >
-                        <NavLink className="sidebar decorate " to="/SignUp">
-                          <Button className="shadow" variant="secondary">
-                            SignUp
-                          </Button>{" "}
-                        </NavLink>
-                      </motion.div>
+                        </>
+                      ) : (
+                        <div>
+                          <NavLink to="/Login" className="sidebar decorate">
+                            <Button className="mx-2 shadow" variant="warning">
+                              Login
+                            </Button>{" "}
+                          </NavLink>
+
+                          <NavLink className="sidebar decorate " to="/SignUp">
+                            <Button className="shadow" variant="secondary">
+                              SignUp
+                            </Button>{" "}
+                          </NavLink>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Offcanvas.Body>

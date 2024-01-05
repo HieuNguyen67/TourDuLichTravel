@@ -14,11 +14,15 @@ import BackToTop from "../components/BackToTop";
 import ListTour from "../components/ListTours.js";
 import WhyChoose from "../components/WhyChoose";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
+
 const Home = () => {
   
 
   return (
     <>
+      <BackToTop />
+      <Header />
       <motion.div
         initial={{ opacity: 0, y: 98 }}
         animate={{ opacity: 1, y: 1 }}

@@ -10,12 +10,16 @@ import pic4 from "../assets/image/cantho.jpg";
 import pic5 from "../assets/image/nui-cam01.jpg";
 import pic6 from "../assets/image/dalat_tours3.jpg";
 import "../assets/scss/TourTongHop.scss";
+import Header from "../components/Header";
+import BackToTop from "../components/BackToTop";
 
 
 
 const TourTongHopPage2 = () => {
   return (
     <>
+      <BackToTop />
+      <Header />
       <div className="boxGioiThieu"></div>
 
       <Container>

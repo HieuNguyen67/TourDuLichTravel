@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import "../assets/scss/GioiThieu.scss";
 import { motion } from "framer-motion";
 import anh from "../assets/image/ttxvn_2303dulichtphcm1.jpg"
+import Header from "../components/Header";
+import BackToTop from "../components/BackToTop";
 
 const GioiThieu = () => {
   return (
     <>
+      <BackToTop />
+      <Header />
       <div className="boxGioiThieu"></div>
       <motion.div
         initial={{ opacity: 0, y: 98 }}
