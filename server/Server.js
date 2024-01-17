@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5020; // Use process.env.PORT if available, otherwise use 5016
+const PORT = process.env.PORT || 5030; // Use process.env.PORT if available, otherwise use 5016
 
 // Middleware
 app.use(cors());

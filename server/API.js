@@ -2,7 +2,7 @@ const express = require("express");
 const multer = require("multer");
 // -----------------------------------------------
 const app = express.Router();
-const db = require("../connectDB/connectDB");
+const db = require("./connectDB/connectDB");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const cors = require("cors");
