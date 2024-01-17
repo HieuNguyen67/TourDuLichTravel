@@ -46,7 +46,7 @@
     "yet-another-react-lightbox": "^3.12.3"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
+    "start": "react-scripts --openssl-legacy-provider start ",
     "build": "react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -73,6 +73,7 @@
     ]
   },
   "devDependencies": {
+    "nodemon": "^3.0.3",
     "npm-run-all": "^4.1.5"
   }
 }
