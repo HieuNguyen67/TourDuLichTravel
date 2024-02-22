@@ -29,10 +29,10 @@ const Bookingtour = () => {
     const fetchTour = async () => {
       try {
         const responseTour = await axios.get(
-          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-tour/${tourID}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-tour/${tourID}`
         );
         const responseImages = await axios.get(
-          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-hinh-anh-tour/${tourID}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-hinh-anh-tour/${tourID}`
         );
 
         setTour(responseTour.data);
@@ -68,7 +68,7 @@ const Bookingtour = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-user/${userId}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-user/${userId}`
         );
         setUser(response.data);
       } catch (error) {
@@ -91,7 +91,7 @@ const Bookingtour = () => {
     // Gửi yêu cầu cập nhật thông tin người dùng lên server
     axios
       .put(
-        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/cap-nhat-user/${userId}`,
+        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-user/${userId}`,
         user
       )
       .then(() => {

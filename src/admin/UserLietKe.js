@@ -19,7 +19,7 @@ const UserLietKe = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-danh-sach-user"
+          "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-danh-sach-user"
         );
         setUsers(response.data);
         setLoading(false);
@@ -42,7 +42,7 @@ const UserLietKe = () => {
     if (window.confirm("Bạn có chắc muốn xoá người dùng này không?")) {
       axios
         .delete(
-          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/xoa-user/${userID}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/xoa-user/${userID}`
         )
         .then(() => {
           // Cập nhật danh sách người dùng sau khi xoá

@@ -26,7 +26,7 @@ const OrderDetails = () => {
   const fetchOrderDetails = async () => {
     try {
       const response = await axios.get(
-        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/api/orders/${orderID}`
+        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/api/orders/${orderID}`
       );
       setOrderDetails(response.data);
     } catch (error) {
@@ -69,7 +69,7 @@ const OrderDetails = () => {
     try {
       // Send a request to update the status
       await axios.put(
-        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/api/orders/${orderID}/status`,
+        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/api/orders/${orderID}/status`,
         {
           status: newStatus,
         }

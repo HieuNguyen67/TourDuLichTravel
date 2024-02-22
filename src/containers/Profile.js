@@ -24,7 +24,7 @@ const Profile = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-user/${userID}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-user/${userID}`
         );
         setUser(response.data);
       } catch (error) {
@@ -49,7 +49,7 @@ const Profile = () => {
   const fetchOrdersByUser = async () => {
     try {
       const response = await axios.get(
-        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/api/orders/user/${userID}`
+        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/api/orders/user/${userID}`
       );
       setOrders(response.data);
     } catch (error) {

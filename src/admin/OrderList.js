@@ -23,7 +23,7 @@ const OrderList = () => {
   const fetchOrders = async () => {
     try {
       const response = await axios.get(
-        "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/api/orders"
+        "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/api/orders"
       );
       setOrders(response.data);
     } catch (error) {

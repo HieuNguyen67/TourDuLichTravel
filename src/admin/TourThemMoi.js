@@ -53,7 +53,7 @@ const TourThemMoi = () => {
 
     try {
       await axios.post(
-        "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/add-tour",
+        "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/add-tour",
         formData,
         {
           headers: {

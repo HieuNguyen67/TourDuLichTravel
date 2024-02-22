@@ -30,7 +30,7 @@ const GuideThemMoi = () => {
     const fetchTourOptions = async () => {
       try {
         const response = await axios.get(
-          "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-danh-sach-tour"
+          "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-danh-sach-tour"
         );
         setTourOptions(response.data);
       } catch (error) {
@@ -55,7 +55,7 @@ const GuideThemMoi = () => {
 
     try {
       const response = await axios.post(
-        "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/guide_register",
+        "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/guide_register",
         {
           email,
           phone,

@@ -21,7 +21,7 @@ const TourEditImage = () => {
     const fetchTour = async () => {
       try {
         const response = await axios.get(
-          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-tour/${tourID}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-tour/${tourID}`
         );
         setTour(response.data);
       } catch (error) {
@@ -43,7 +43,7 @@ const TourEditImage = () => {
 
       // Gửi yêu cầu cập nhật hình ảnh lên server
       await axios.put(
-        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/cap-nhat-hinh-anh-tour/${tourID}`,
+        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-hinh-anh-tour/${tourID}`,
         formData,
         {
           headers: {

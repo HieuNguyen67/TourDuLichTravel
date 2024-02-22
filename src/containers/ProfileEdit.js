@@ -25,7 +25,7 @@ function ProfileEdit() {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-user/${userID}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-user/${userID}`
         );
         setUser(response.data);
       } catch (error) {
@@ -49,7 +49,7 @@ function ProfileEdit() {
     // Gửi yêu cầu cập nhật thông tin người dùng lên server
     axios
       .put(
-        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/cap-nhat-user/${userID}`,
+        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-user/${userID}`,
         user
       )
       .then(() => {

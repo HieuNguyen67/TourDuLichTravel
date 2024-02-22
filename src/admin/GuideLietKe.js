@@ -19,7 +19,7 @@ const GuideLietKe = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-danh-sach-guide"
+          "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-danh-sach-guide"
         );
         setUsers(response.data);
         setLoading(false);
@@ -42,7 +42,7 @@ const GuideLietKe = () => {
     if (window.confirm("Bạn có chắc muốn xoá người dùng này không?")) {
       axios
         .delete(
-          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/xoa-guide/${guideID}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/xoa-guide/${guideID}`
         )
         .then(() => {
           // Cập nhật danh sách người dùng sau khi xoá

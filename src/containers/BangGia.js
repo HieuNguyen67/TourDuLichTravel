@@ -20,7 +20,7 @@ const BangGia = () => {
     const fetchTours = async () => {
       try {
         const response = await axios.get(
-          "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/get-tours"
+          "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/get-tours"
         );
         setTours(response.data);
         setLoading(false);
