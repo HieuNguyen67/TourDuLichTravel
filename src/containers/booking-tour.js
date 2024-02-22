@@ -2,7 +2,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
-import "../assets/scss/DetailTourMienTay3Ngay2Dem.scss"
+import "../assets/scss/DetailTourMienTay3Ngay2Dem.scss";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import InfoIcon from "@mui/icons-material/Info";
 import Form from "react-bootstrap/Form";
@@ -17,97 +17,94 @@ import { useAuth } from "./AuthContext";
 
 import BookingForm from "../components/BookingForm";
 
-
 const Bookingtour = () => {
-     const [validated, setValidated] = useState(false);
-const {userId } = useAuth();
-    
-       const { tourID, userID } = useParams();
-          
+  const [validated, setValidated] = useState(false);
+  const { userId } = useAuth();
 
-       const [tour, setTour] = useState([]);
-       const [images, setImages] = useState([]);
-       useEffect(() => {
-         const fetchTour = async () => {
-           try {
-             const responseTour = await axios.get(
-               `http://localhost:5020/v1/api/admin/lay-thong-tin-tour/${tourID}`
-             );
-             const responseImages = await axios.get(
-               `http://localhost:5020/v1/api/admin/lay-hinh-anh-tour/${tourID}`
-             );
+  const { tourID, userID } = useParams();
 
-             setTour(responseTour.data);
-             setImages(responseImages.data);
-           } catch (error) {
-             console.error("Lỗi khi lấy thông tin tour và hình ảnh:", error);
-           }
-         };
+  const [tour, setTour] = useState([]);
+  const [images, setImages] = useState([]);
+  useEffect(() => {
+    const fetchTour = async () => {
+      try {
+        const responseTour = await axios.get(
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-tour/${tourID}`
+        );
+        const responseImages = await axios.get(
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-hinh-anh-tour/${tourID}`
+        );
 
-         fetchTour();
-       }, [tourID]);
-      const formatCurrency = (price) => {
-        // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
-        const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
+        setTour(responseTour.data);
+        setImages(responseImages.data);
+      } catch (error) {
+        console.error("Lỗi khi lấy thông tin tour và hình ảnh:", error);
+      }
+    };
 
-        // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
-        const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
-          currency: "VND",
-        });
+    fetchTour();
+  }, [tourID]);
+  const formatCurrency = (price) => {
+    // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
+    const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
 
-        // Thêm chữ "VNĐ" vào cuối chuỗi
-        return formattedPrice + " VNĐ";
-      };
-    const [user, setUser] = useState({
-      fullname: "",
-      username: "",
-      email: "",
-      phone: "",
-      address: "",
+    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
+    const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
+      currency: "VND",
     });
-       
 
-       useEffect(() => {
-         const fetchUser = async () => {
-           try {
-             const response = await axios.get(
-               `http://localhost:5020/v1/api/admin/lay-thong-tin-user/${userId}`
-             );
-             setUser(response.data);
-           } catch (error) {
-             console.error("Lỗi khi lấy thông tin người dùng:", error);
-           }
-         };
+    // Thêm chữ "VNĐ" vào cuối chuỗi
+    return formattedPrice + " VNĐ";
+  };
+  const [user, setUser] = useState({
+    fullname: "",
+    username: "",
+    email: "",
+    phone: "",
+    address: "",
+  });
 
-         fetchUser();
-       }, [userID]);
-       const handleInputChange = (e) => {
-         setUser({
-           ...user,
-           [e.target.name]: e.target.value,
-         });
-       };
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get(
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-user/${userId}`
+        );
+        setUser(response.data);
+      } catch (error) {
+        console.error("Lỗi khi lấy thông tin người dùng:", error);
+      }
+    };
 
-       const handleSubmit = (e) => {
-         e.preventDefault();
+    fetchUser();
+  }, [userID]);
+  const handleInputChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-         // Gửi yêu cầu cập nhật thông tin người dùng lên server
-         axios
-           .put(
-             `http://localhost:5020/v1/api/admin/cap-nhat-user/${userId}`,
-             user
-           )
-           .then(() => {
-             // Chuyển hướng về trang danh sách người dùng sau khi cập nhật thành công
-              window.alert("Cập nhật thành công!");
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-             // Chuyển hướng đến trang login sau 3 giây
-           })
-           .catch((error) => {
-             console.error("Lỗi khi cập nhật người dùng:", error);
-           });
-       };
-        
+    // Gửi yêu cầu cập nhật thông tin người dùng lên server
+    axios
+      .put(
+        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/cap-nhat-user/${userId}`,
+        user
+      )
+      .then(() => {
+        // Chuyển hướng về trang danh sách người dùng sau khi cập nhật thành công
+        window.alert("Cập nhật thành công!");
+
+        // Chuyển hướng đến trang login sau 3 giây
+      })
+      .catch((error) => {
+        console.error("Lỗi khi cập nhật người dùng:", error);
+      });
+  };
+
   return (
     <>
       <BackToTop />

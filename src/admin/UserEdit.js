@@ -15,70 +15,73 @@ import { useParams } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 
 const UserEdit = () => {
-    const navigate = useNavigate();
- const { userID } = useParams();
- const [user, setUser] = useState({
-   fullname: "",
-   username: "",
-   email: "",
-   phone: "",
-   address: "",
- });
+  const navigate = useNavigate();
+  const { userID } = useParams();
+  const [user, setUser] = useState({
+    fullname: "",
+    username: "",
+    email: "",
+    phone: "",
+    address: "",
+  });
 
- useEffect(() => {
-   const fetchUser = async () => {
-     try {
-       const response = await axios.get(
-         `http://localhost:5020/v1/api/admin/lay-thong-tin-user/${userID}`
-       );
-       setUser(response.data);
-     } catch (error) {
-       console.error("Lỗi khi lấy thông tin người dùng:", error);
-     }
-   };
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get(
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-user/${userID}`
+        );
+        setUser(response.data);
+      } catch (error) {
+        console.error("Lỗi khi lấy thông tin người dùng:", error);
+      }
+    };
 
-   fetchUser();
- }, [userID]);
+    fetchUser();
+  }, [userID]);
 
- const handleInputChange = (e) => {
-   setUser({
-     ...user,
-     [e.target.name]: e.target.value,
-   });
- };
+  const handleInputChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
+  };
 
- const handleSubmit = (e) => {
-   e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-   // Gửi yêu cầu cập nhật thông tin người dùng lên server
-   axios
-     .put(`http://localhost:5020/v1/api/admin/cap-nhat-user/${userID}`, user)
-     .then(() => {
-       // Chuyển hướng về trang danh sách người dùng sau khi cập nhật thành công
-       toast.success("Cập nhật thành công");
+    // Gửi yêu cầu cập nhật thông tin người dùng lên server
+    axios
+      .put(
+        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/cap-nhat-user/${userID}`,
+        user
+      )
+      .then(() => {
+        // Chuyển hướng về trang danh sách người dùng sau khi cập nhật thành công
+        toast.success("Cập nhật thành công");
 
-       // Chuyển hướng đến trang login sau 3 giây
-       setTimeout(() => {
-         navigate("/TourDuLichTravel/admin/UserLietKe");
-       }, 1500);
-     })
-     .catch((error) => {
-       console.error("Lỗi khi cập nhật người dùng:", error);
-     });
- };
-const { adminToken } = useAuth();
+        // Chuyển hướng đến trang login sau 3 giây
+        setTimeout(() => {
+          navigate("/TourDuLichTravel/admin/UserLietKe");
+        }, 1500);
+      })
+      .catch((error) => {
+        console.error("Lỗi khi cập nhật người dùng:", error);
+      });
+  };
+  const { adminToken } = useAuth();
 
-useEffect(() => {
-  // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
+  useEffect(() => {
+    // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
+    if (!adminToken) {
+      navigate("/TourDuLichTravel/admin");
+    }
+  }, [adminToken, navigate]);
+
   if (!adminToken) {
-    navigate("/TourDuLichTravel/admin");
+    // Nếu chưa đăng nhập, không hiển thị nội dung của trang
+    return null;
   }
-}, [adminToken, navigate]);
-
-if (!adminToken) {
-  // Nếu chưa đăng nhập, không hiển thị nội dung của trang
-  return null;
-}
 
   return (
     <>
@@ -138,10 +141,12 @@ if (!adminToken) {
                     value={user.address}
                     onChange={handleInputChange}
                   />
-                </Form.Group><br/>
+                </Form.Group>
+                <br />
 
-                
-                <Button type="submit" className="p-3 btn-warning col-3">Lưu Thay Đổi</Button>
+                <Button type="submit" className="p-3 btn-warning col-3">
+                  Lưu Thay Đổi
+                </Button>
               </Form>
             </div>
           </div>

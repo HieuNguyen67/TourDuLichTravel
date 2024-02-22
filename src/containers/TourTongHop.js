@@ -6,51 +6,49 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import "../assets/scss/TourTongHop.scss"
+import "../assets/scss/TourTongHop.scss";
 import Header from "../components/Header";
 import BackToTop from "../components/BackToTop";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 
-
-
 const TourTongHop = () => {
-   const [tours, setTours] = useState([]);
-   const [loading, setLoading] = useState(true);
-   useEffect(() => {
-     // Gọi API để lấy danh sách tour từ backend
-     const fetchTours = async () => {
-       try {
-         const response = await axios.get(
-           "http://localhost:5020/v1/api/admin/get-tours"
-         );
-         setTours(response.data);
-         setLoading(false);
-       } catch (error) {
-         console.error("Error fetching tours:", error);
-       }
-     };
+  const [tours, setTours] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    // Gọi API để lấy danh sách tour từ backend
+    const fetchTours = async () => {
+      try {
+        const response = await axios.get(
+          "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/get-tours"
+        );
+        setTours(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching tours:", error);
+      }
+    };
 
-     fetchTours();
-   }, []);
-   const formatCurrency = (price) => {
-     // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
-     const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
+    fetchTours();
+  }, []);
+  const formatCurrency = (price) => {
+    // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
+    const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
 
-     // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
-     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
-       currency: "VND",
-     });
+    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
+    const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
+      currency: "VND",
+    });
 
-     // Thêm chữ "VNĐ" vào cuối chuỗi
-     return formattedPrice + " VNĐ";
-   };
-   const handleDetail = (tourID) => {
-     navigate(`/TourDuLichTravel/admin/sua-image-tour/${tourID}`);
-   };
-     const navigate = useNavigate();
-     
+    // Thêm chữ "VNĐ" vào cuối chuỗi
+    return formattedPrice + " VNĐ";
+  };
+  const handleDetail = (tourID) => {
+    navigate(`/TourDuLichTravel/admin/sua-image-tour/${tourID}`);
+  };
+  const navigate = useNavigate();
+
   return (
     <>
       <BackToTop />

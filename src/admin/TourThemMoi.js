@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 
-
 const TourThemMoi = () => {
   const [tourInfo, setTourInfo] = useState({
     name: "",
@@ -54,7 +53,7 @@ const TourThemMoi = () => {
 
     try {
       await axios.post(
-        "http://localhost:5020/v1/api/admin/add-tour",
+        "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/add-tour",
         formData,
         {
           headers: {

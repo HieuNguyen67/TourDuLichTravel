@@ -16,7 +16,7 @@ import Form from "react-bootstrap/Form";
 
 const TourEdit = () => {
   const { tourID } = useParams();
-    console.log("ID:", tourID);
+  console.log("ID:", tourID);
   const [tour, setTour] = useState({
     name: "",
     start_date: "",
@@ -28,21 +28,21 @@ const TourEdit = () => {
     quantity: "",
   });
   const [images, setImages] = useState([]);
-   const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchTour = async () => {
       try {
         const responseTour = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-thong-tin-tour/${tourID}`
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-tour/${tourID}`
         );
         const responseImages = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-hinh-anh-tour/${tourID}`
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-hinh-anh-tour/${tourID}`
         );
 
         setTour(responseTour.data);
         setImages(responseImages.data);
-         setLoading(false);
+        setLoading(false);
       } catch (error) {
         console.error("Lỗi khi lấy thông tin tour và hình ảnh:", error);
       }
@@ -58,19 +58,19 @@ const TourEdit = () => {
     });
   };
 
-
-const handleEditImage = (tourID) => {
-  navigate(`/TourDuLichTravel/admin/sua-image-tour/${tourID}`);
-};
+  const handleEditImage = (tourID) => {
+    navigate(`/TourDuLichTravel/admin/sua-image-tour/${tourID}`);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-   
-
     // Gửi yêu cầu cập nhật thông tin tour và hình ảnh lên server
     axios
-      .put(`http://localhost:5020/v1/api/admin/cap-nhat-tour/${tourID}`, tour)
+      .put(
+        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/cap-nhat-tour/${tourID}`,
+        tour
+      )
       .then(() => {
         // Chuyển hướng về trang danh sách tour sau khi cập nhật thành công
         window.location.href = "/TourDuLichTravel/admin/TourLietKe";

@@ -11,59 +11,61 @@ import { Button, Container } from "react-bootstrap";
 import { useNavigate, Link, useParams } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 
-
 function ProfileEdit() {
-    const { userID } = useParams();
-    const [user, setUser] = useState({
-      fullname: "",
-      username: "",
-      email: "",
-      phone: "",
-      address: "",
+  const { userID } = useParams();
+  const [user, setUser] = useState({
+    fullname: "",
+    username: "",
+    email: "",
+    phone: "",
+    address: "",
+  });
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const response = await axios.get(
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-user/${userID}`
+        );
+        setUser(response.data);
+      } catch (error) {
+        console.error("Lỗi khi lấy thông tin người dùng:", error);
+      }
+    };
+
+    fetchUser();
+  }, [userID]);
+
+  const handleInputChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
     });
+  };
 
-    useEffect(() => {
-      const fetchUser = async () => {
-        try {
-          const response = await axios.get(
-            `http://localhost:5020/v1/api/admin/lay-thong-tin-user/${userID}`
-          );
-          setUser(response.data);
-        } catch (error) {
-          console.error("Lỗi khi lấy thông tin người dùng:", error);
-        }
-      };
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-      fetchUser();
-    }, [userID]);
+    // Gửi yêu cầu cập nhật thông tin người dùng lên server
+    axios
+      .put(
+        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/cap-nhat-user/${userID}`,
+        user
+      )
+      .then(() => {
+        // Chuyển hướng về trang danh sách người dùng sau khi cập nhật thành công
+        toast.success("Cập nhật thành công");
 
-    const handleInputChange = (e) => {
-      setUser({
-        ...user,
-        [e.target.name]: e.target.value,
+        // Chuyển hướng đến trang login sau 3 giây
+        setTimeout(() => {
+          navigate(`/profile/${userID}`);
+        }, 1500);
+      })
+      .catch((error) => {
+        console.error("Lỗi khi cập nhật người dùng:", error);
       });
-    };
-
-    const handleSubmit = (e) => {
-      e.preventDefault();
-
-      // Gửi yêu cầu cập nhật thông tin người dùng lên server
-      axios
-        .put(`http://localhost:5020/v1/api/admin/cap-nhat-user/${userID}`, user)
-        .then(() => {
-          // Chuyển hướng về trang danh sách người dùng sau khi cập nhật thành công
-          toast.success("Cập nhật thành công");
-
-          // Chuyển hướng đến trang login sau 3 giây
-          setTimeout(() => {
-            navigate(`/profile/${userID}`);
-          }, 1500);
-        })
-        .catch((error) => {
-          console.error("Lỗi khi cập nhật người dùng:", error);
-        });
-    };
-        const navigate = useNavigate();
+  };
+  const navigate = useNavigate();
 
   return (
     <>
@@ -109,7 +111,7 @@ function ProfileEdit() {
                       onChange={handleInputChange}
                     />
                   </Form.Group>
-                  
+
                   <Form.Group className="mb-3">
                     <Form.Label>Số điện thoại :</Form.Label>
                     <Form.Control

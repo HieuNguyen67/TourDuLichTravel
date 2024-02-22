@@ -15,73 +15,71 @@ import "react-toastify/dist/ReactToastify.css";
 import BackToTop from "../components/BackToTop";
 
 const SignUp = () => {
- 
-     const [username, setUsername] = useState("");
-     const [email, setEmail] = useState("");
-     const [password, setPassword] = useState("");
-     const [phone, setPhone] = useState("");
-     const [address, setAddress] = useState("");
-     const [fullname, setFullname] = useState("");
-      const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [fullname, setFullname] = useState("");
+  const navigate = useNavigate();
 
+  const handleRegister = async () => {
+    if (
+      !username ||
+      !email ||
+      !password ||
+      !phone ||
+      !address ||
+      !fullname ||
+      !isValidEmail(email) ||
+      !isValidPhone(phone)
+    ) {
+      toast.error("Please fill in all fields with valid data.");
+      return;
+    }
 
-    const handleRegister = async () => {
-      if (
-        !username ||
-        !email ||
-        !password ||
-        !phone ||
-        !address ||
-        !fullname ||
-        !isValidEmail(email) ||
-        !isValidPhone(phone)
-      ) {
-        toast.error("Please fill in all fields with valid data.");
-        return;
-      }
-
-      try {
-        const response = await axios.post(
-          "http://localhost:5020/v1/api/admin/register",
-          {
-            username,
-            email,
-            password,
-            phone,
-            address,
-            fullname,
-          }
-        );
-
-        toast.success(response.data.message);
-
-        // Chuyển hướng đến trang login sau 3 giây
-        setTimeout(() => {
-          navigate("/Login");
-        }, 1500);
-      } catch (error) {
-        if (error.response && error.response.status === 400) {
-          toast.error(
-            "Username hoặc email đã tồn tại. Vui lòng chọn Username hoặc email khác."
-          );
-        } else {
-          console.error("Registration failed:", error.response.data.message);
-          toast.error("Registration failed. Please try again.");
+    try {
+      const response = await axios.post(
+        "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/register",
+        {
+          username,
+          email,
+          password,
+          phone,
+          address,
+          fullname,
         }
+      );
+
+      toast.success(response.data.message);
+
+      // Chuyển hướng đến trang login sau 3 giây
+      setTimeout(() => {
+        navigate("/Login");
+      }, 1500);
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        toast.error(
+          "Username hoặc email đã tồn tại. Vui lòng chọn Username hoặc email khác."
+        );
+      } else {
+        console.error("Registration failed:", error.response.data.message);
+        toast.error("Registration failed. Please try again.");
       }
-    };
+    }
+  };
 
-     // Hàm kiểm tra định dạng email
-     const isValidEmail = (value) => {
-       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-       return emailRegex.test(value);
-     };
+  // Hàm kiểm tra định dạng email
+  const isValidEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value);
+  };
 
-     // Hàm kiểm tra định dạng số điện thoại
-     const isValidPhone = (value) => {
-       const phoneRegex = /^\d{10}$/; // Giả sử số điện thoại có 10 chữ số
-       return phoneRegex.test(value);
-     };
+  // Hàm kiểm tra định dạng số điện thoại
+  const isValidPhone = (value) => {
+    const phoneRegex = /^\d{10}$/; // Giả sử số điện thoại có 10 chữ số
+    return phoneRegex.test(value);
+  };
   return (
     <>
       <BackToTop />

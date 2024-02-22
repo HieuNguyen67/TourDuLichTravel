@@ -1,4 +1,3 @@
-
 import SIDEBAR from "./componentss/sidebar";
 import Header1 from "./componentss/Header1";
 import Row from "react-bootstrap/Row";
@@ -17,51 +16,44 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Admin = () => {
+  const [identifier, setIdentifier] = useState("");
+  const [password, setPassword] = useState("");
+  const { login, adminToken } = useAuth();
 
- const [identifier, setIdentifier] = useState("");
- const [password, setPassword] = useState("");
- const { login, adminToken } = useAuth();
-   
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
-useEffect(() => {
-  // Nếu người dùng đã đăng nhập, chuyển hướng đến trang AdminDashboard
-  if (adminToken) {
-     
-    navigate("/TourDuLichTravel/admin/UserLietKe");
-  
-  }
-}, [adminToken, navigate]);
+  useEffect(() => {
+    // Nếu người dùng đã đăng nhập, chuyển hướng đến trang AdminDashboard
+    if (adminToken) {
+      navigate("/TourDuLichTravel/admin/UserLietKe");
+    }
+  }, [adminToken, navigate]);
 
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(
+        "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/login",
+        {
+          identifier,
+          password,
+        }
+      );
+      const { token, username } = response.data;
 
- const handleLogin = async () => {
-   try {
-     const response = await axios.post(
-       "http://localhost:5020/v1/api/admin/login",
-       {
-         identifier,
-         password,
-       }
-     );
-     const { token, username } = response.data;
+      // Lưu thông tin người dùng vào context
+      login(token, username);
 
-     // Lưu thông tin người dùng vào context
-     login(token, username);
+      // Chuyển hướng đến trang admin sau khi đăng nhập thành công
+      // Ví dụ: history.push('/admin/dashboard');
 
-     // Chuyển hướng đến trang admin sau khi đăng nhập thành công
-     // Ví dụ: history.push('/admin/dashboard');
-                
-
-              
-              toast.success("Login successful!");
-               setTimeout(() => {
-                 navigate("/TourDuLichTravel/admin/UserLietKe");
-               }, 1500);
-
-   } catch (error) {
-     toast.error("Sai thông tin đăng nhập. Vui lòng kiểm tra lại !");
-   }
- };
+      toast.success("Login successful!");
+      setTimeout(() => {
+        navigate("/TourDuLichTravel/admin/UserLietKe");
+      }, 1500);
+    } catch (error) {
+      toast.error("Sai thông tin đăng nhập. Vui lòng kiểm tra lại !");
+    }
+  };
 
   return (
     <>
@@ -78,7 +70,9 @@ useEffect(() => {
             <Row>
               <Col></Col>
               <Col className="col-10 ">
-                <h2 className="text-center text-break fw-bold ">Đăng Nhập Admin</h2>
+                <h2 className="text-center text-break fw-bold ">
+                  Đăng Nhập Admin
+                </h2>
               </Col>
               <Col></Col>
             </Row>

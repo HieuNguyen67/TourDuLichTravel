@@ -21,7 +21,7 @@ const TourEditImage = () => {
     const fetchTour = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-thong-tin-tour/${tourID}`
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-tour/${tourID}`
         );
         setTour(response.data);
       } catch (error) {
@@ -43,7 +43,7 @@ const TourEditImage = () => {
 
       // Gửi yêu cầu cập nhật hình ảnh lên server
       await axios.put(
-        `http://localhost:5020/v1/api/admin/cap-nhat-hinh-anh-tour/${tourID}`,
+        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/cap-nhat-hinh-anh-tour/${tourID}`,
         formData,
         {
           headers: {
@@ -53,18 +53,18 @@ const TourEditImage = () => {
       );
 
       // Thông báo cập nhật thành công hoặc chuyển hướng về trang danh sách tour
-      
-            toast.success("Cập nhật hình ảnh tour thành công");
-setTimeout(() => {
-  navigate(`/TourDuLichTravel/admin/sua-tour/${tourID}`);
-}, 1500);
-      
+
+      toast.success("Cập nhật hình ảnh tour thành công");
+      setTimeout(() => {
+        navigate(`/TourDuLichTravel/admin/sua-tour/${tourID}`);
+      }, 1500);
+
       // hoặc window.location.href = '/danh-sach-tour';
     } catch (error) {
       console.error("Lỗi khi cập nhật hình ảnh tour:", error);
     }
   };
-  
+
   const { adminToken } = useAuth();
   const navigate = useNavigate();
 
@@ -103,7 +103,6 @@ setTimeout(() => {
                       {...register("images", { required: true })}
                     />
                   </Form.Group>
-                 
                 </div>
 
                 <Button className="btn-dark mt-5" type="submit">

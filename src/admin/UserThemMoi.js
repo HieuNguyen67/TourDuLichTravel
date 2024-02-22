@@ -36,7 +36,7 @@ const UserThemMoi = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5020/v1/api/admin/register",
+        "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/register",
         {
           username,
           email,
@@ -183,7 +183,7 @@ const UserThemMoi = () => {
                 className="col-4 mt-4 p-3"
                 onClick={handleRegister}
               >
-               Thêm mới 
+                Thêm mới
               </Button>
             </Form>
           </div>

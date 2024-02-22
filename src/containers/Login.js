@@ -10,64 +10,58 @@ import LoginIcon from "@mui/icons-material/Login";
 import { motion, useAnimation } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useAuth } from "./AuthContext"; 
+import { useAuth } from "./AuthContext";
 import Header from "../components/Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BackToTop from "../components/BackToTop";
 
- // Import useHistory
+// Import useHistory
 
 const Login = () => {
-      
-    const [validated, setValidated] = useState(false);
-const navigate = useNavigate();
+  const [validated, setValidated] = useState(false);
+  const navigate = useNavigate();
 
- 
-    const handleSubmit1 = (event) => {
-      const form = event.currentTarget;
-      if (form.checkValidity() === false) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
+  const handleSubmit1 = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
-      setValidated(true);
-    };
-   const [emailOrUsername, setEmailOrUsername] = useState("");
-   const [password, setPassword] = useState("");
-   const { login } = useAuth();
+    setValidated(true);
+  };
+  const [emailOrUsername, setEmailOrUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { login } = useAuth();
 
-   const handleLogin = async () => {
-     try {
-       const response = await axios.post(
-         "http://localhost:5020/v1/api/admin/login/user",
-         {
-           emailOrUsername,
-           password,
-         }
-       );
-       const data = response.data;
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post(
+        "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/login/user",
+        {
+          emailOrUsername,
+          password,
+        }
+      );
+      const data = response.data;
 
-       if (data.success) {
-         login(data.user, data.token);
-         toast.success("Đăng nhập thành công !");
+      if (data.success) {
+        login(data.user, data.token);
+        toast.success("Đăng nhập thành công !");
 
-         // Chuyển hướng đến trang login sau 3 giây
-         setTimeout(() => {
-           navigate("/TourDuLichTravel");
-         }, 1500);
-         
-          
-        
-       } else {
+        // Chuyển hướng đến trang login sau 3 giây
+        setTimeout(() => {
+          navigate("/TourDuLichTravel");
+        }, 1500);
+      } else {
         toast.error("Sai thông tin đăng nhập. Vui lòng kiểm tra lại !");
-      
-       }
-     } catch (error) {
-       toast.error("Sai thông tin đăng nhập. Vui lòng kiểm tra lại !");
-     }
-   };
-    
+      }
+    } catch (error) {
+      toast.error("Sai thông tin đăng nhập. Vui lòng kiểm tra lại !");
+    }
+  };
+
   return (
     <>
       <BackToTop />

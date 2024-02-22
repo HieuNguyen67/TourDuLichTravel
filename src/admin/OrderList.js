@@ -13,24 +13,23 @@ import Container from "react-bootstrap/Container";
 import { Button } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 const OrderList = () => {
- 
-const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]);
 
-useEffect(() => {
-  // Fetch the list of orders when the component mounts
-  fetchOrders();
-}, []);
+  useEffect(() => {
+    // Fetch the list of orders when the component mounts
+    fetchOrders();
+  }, []);
 
-const fetchOrders = async () => {
-  try {
-    const response = await axios.get(
-      "http://localhost:5020/v1/api/admin/api/orders"
-    );
-    setOrders(response.data);
-  } catch (error) {
-    console.error("Error fetching orders:", error);
-  }
-};
+  const fetchOrders = async () => {
+    try {
+      const response = await axios.get(
+        "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/api/orders"
+      );
+      setOrders(response.data);
+    } catch (error) {
+      console.error("Error fetching orders:", error);
+    }
+  };
   const { adminToken } = useAuth();
   const navigate = useNavigate();
 
@@ -45,35 +44,34 @@ const fetchOrders = async () => {
     // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
-   const formatCurrency = (price) => {
-     // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
-     const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
+  const formatCurrency = (price) => {
+    // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
+    const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
 
-     // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
-     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
-       currency: "VND",
-     });
+    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
+    const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
+      currency: "VND",
+    });
 
-     // Thêm chữ "VNĐ" vào cuối chuỗi
-     return formattedPrice ;
-   };
-   const getStatusColor = (status) => {
-     switch (status) {
-       case "Tiếp nhận":
-         return "yellow";
-       case "Đã thanh toán":
-         return "#99FF99"; // Màu cam cho trạng thái 'Pending'
-       // Màu xanh cho trạng thái 'Confirmed'
-       case "Đã huỷ":
-         return "#FF6633";
-       case "Đã kết thúc":
-         return "#FF9900";
-       // Màu đỏ cho trạng thái 'Cancelled'
-       default:
-         return "black"; // Màu mặc định nếu trạng thái không khớp với bất kỳ trường hợp nào
-     }
-   };
-   
+    // Thêm chữ "VNĐ" vào cuối chuỗi
+    return formattedPrice;
+  };
+  const getStatusColor = (status) => {
+    switch (status) {
+      case "Tiếp nhận":
+        return "yellow";
+      case "Đã thanh toán":
+        return "#99FF99"; // Màu cam cho trạng thái 'Pending'
+      // Màu xanh cho trạng thái 'Confirmed'
+      case "Đã huỷ":
+        return "#FF6633";
+      case "Đã kết thúc":
+        return "#FF9900";
+      // Màu đỏ cho trạng thái 'Cancelled'
+      default:
+        return "black"; // Màu mặc định nếu trạng thái không khớp với bất kỳ trường hợp nào
+    }
+  };
 
   return (
     <>
@@ -149,7 +147,7 @@ const fetchOrders = async () => {
 
                       <br />
                     </td>
-                    <td >
+                    <td>
                       {new Date(order.booking_date_time).toLocaleDateString(
                         "vi-VN",
                         {

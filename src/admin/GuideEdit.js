@@ -26,26 +26,26 @@ const GuideEdit = () => {
     tour_id: "",
   });
   const [tourOptions, setTourOptions] = useState([]);
-useEffect(() => {
-  // Fetch the list of tours to populate the dropdown options
-  const fetchTourOptions = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:5020/v1/api/admin/lay-danh-sach-tour"
-      );
-      setTourOptions(response.data);
-    } catch (error) {
-      console.error("Error fetching tour options:", error);
-    }
-  };
+  useEffect(() => {
+    // Fetch the list of tours to populate the dropdown options
+    const fetchTourOptions = async () => {
+      try {
+        const response = await axios.get(
+          "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-danh-sach-tour"
+        );
+        setTourOptions(response.data);
+      } catch (error) {
+        console.error("Error fetching tour options:", error);
+      }
+    };
 
-  fetchTourOptions();
-}, []);
+    fetchTourOptions();
+  }, []);
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-thong-tin-guide/${guideID}`
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-guide/${guideID}`
         );
         setUser(response.data);
       } catch (error) {
@@ -68,7 +68,10 @@ useEffect(() => {
 
     // Gửi yêu cầu cập nhật thông tin người dùng lên server
     axios
-      .put(`http://localhost:5020/v1/api/admin/cap-nhat-guide/${guideID}`, user)
+      .put(
+        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/cap-nhat-guide/${guideID}`,
+        user
+      )
       .then(() => {
         // Chuyển hướng về trang danh sách người dùng sau khi cập nhật thành công
         toast.success("Cập nhật thành công");

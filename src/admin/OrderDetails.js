@@ -14,27 +14,25 @@ import { Button } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import Form from "react-bootstrap/Form";
 
-
-
 const OrderDetails = () => {
-const { orderID } = useParams();
-const [orderDetails, setOrderDetails] = useState({});
+  const { orderID } = useParams();
+  const [orderDetails, setOrderDetails] = useState({});
   const [newStatus, setNewStatus] = useState("");
-useEffect(() => {
-  // Fetch order details when the component mounts
-  fetchOrderDetails();
-}, [orderID]);
+  useEffect(() => {
+    // Fetch order details when the component mounts
+    fetchOrderDetails();
+  }, [orderID]);
 
-const fetchOrderDetails = async () => {
-  try {
-    const response = await axios.get(
-      `http://localhost:5020/v1/api/admin/api/orders/${orderID}`
-    );
-    setOrderDetails(response.data);
-  } catch (error) {
-    console.error("Error fetching order details:", error);
-  }
-};
+  const fetchOrderDetails = async () => {
+    try {
+      const response = await axios.get(
+        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/api/orders/${orderID}`
+      );
+      setOrderDetails(response.data);
+    } catch (error) {
+      console.error("Error fetching order details:", error);
+    }
+  };
 
   const { adminToken } = useAuth();
   const navigate = useNavigate();
@@ -50,50 +48,47 @@ const fetchOrderDetails = async () => {
     // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
-   const formatCurrency = (price) => {
-     // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
-     const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
+  const formatCurrency = (price) => {
+    // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
+    const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
 
-     // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
-     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
-       currency: "VND",
-     });
+    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
+    const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
+      currency: "VND",
+    });
 
-     // Thêm chữ "VNĐ" vào cuối chuỗi
-     return formattedPrice+" VNĐ";
-   };
+    // Thêm chữ "VNĐ" vào cuối chuỗi
+    return formattedPrice + " VNĐ";
+  };
 
+  const handleStatusChange = (e) => {
+    setNewStatus(e.target.value);
+  };
 
-   const handleStatusChange = (e) => {
-     setNewStatus(e.target.value);
-   };
-
-   const handleUpdateStatus = async () => {
-     try {
-       // Send a request to update the status
-       await axios.put(
-         `http://localhost:5020/v1/api/admin/api/orders/${orderID}/status`,
-         {
-           status: newStatus,
-         }
-       );
-       // Refetch order details to update the displayed information
-       fetchOrderDetails();
-       toast.success("Cập nhật trạng thái thành công", {
-         position: toast.POSITION.TOP_RIGHT,
-       });
-       setTimeout(() => {
-         navigate("/TourDuLichTravel/admin/OrderList");
-       }, 1500);
-
-    
-     } catch (error) {
-       console.error("Error updating status:", error);
-       toast.error("Error updating status", {
-         position: toast.POSITION.TOP_RIGHT,
-       });
-     }
-   };
+  const handleUpdateStatus = async () => {
+    try {
+      // Send a request to update the status
+      await axios.put(
+        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/api/orders/${orderID}/status`,
+        {
+          status: newStatus,
+        }
+      );
+      // Refetch order details to update the displayed information
+      fetchOrderDetails();
+      toast.success("Cập nhật trạng thái thành công", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+      setTimeout(() => {
+        navigate("/TourDuLichTravel/admin/OrderList");
+      }, 1500);
+    } catch (error) {
+      console.error("Error updating status:", error);
+      toast.error("Error updating status", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  };
 
   return (
     <>

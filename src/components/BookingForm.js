@@ -7,8 +7,6 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Form, Button, Col, Row, Modal } from "react-bootstrap";
 
-
-
 const BookingForm = () => {
   const navigate = useNavigate();
 
@@ -23,62 +21,56 @@ const BookingForm = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
-    const handleBooking = async () => {
-      try {
-        if (!user) {
-          console.error("User not logged in");
-          navigate("/Login");
-          return;
-        }
-        const totalQuantity =
-          parseInt(adultQuantity) +
-          parseInt(childQuantity) 
-       
-        console.log(totalQuantity);
+  const handleBooking = async () => {
+    try {
+      if (!user) {
+        console.error("User not logged in");
+        navigate("/Login");
+        return;
+      }
+      const totalQuantity = parseInt(adultQuantity) + parseInt(childQuantity);
 
-        if (totalQuantity > tourDetails.quantity) {
+      console.log(totalQuantity);
+
+      if (totalQuantity > tourDetails.quantity) {
         setModalMessage(
           "Số lượng người đặt vượt quá số lượng còn lại của tour. Vui lòng đặt lại !"
         );
         setShowModal(true);
-          return;
-        }
-
-
-        const response = await axios.post(
-          "http://localhost:5020/v1/api/admin/bookings",
-          {
-            userId,
-            tourID,
-            adultQuantity,
-            childQuantity,
-            infantQuantity,
-          }
-        );
-
-      
-
-        console.log("Booking successful:", response.data);
-        setModalMessage(
-          "ĐẶT TOUR THÀNH CÔNG !"
-        );
-        setShowModal(true);
-        setTimeout(() => {
-          navigate("/TourDuLichTravel");
-        }, 1500);
-      } catch (error) {
-        console.error("Error booking tour:", error);
-         setModalMessage("BẠN ĐÃ ĐẶT TOUR NÀY ĐANG Ở TRẠNG THÁI CHỜ DUYỆT HOẶC ĐÃ THANH TOÁN, VUI LÒNG LIÊN HỆ CÔNG TY ĐỂ HUỶ TOUR NÀY !");
-         setShowModal(true);
-      
+        return;
       }
-    };
+
+      const response = await axios.post(
+        "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/bookings",
+        {
+          userId,
+          tourID,
+          adultQuantity,
+          childQuantity,
+          infantQuantity,
+        }
+      );
+
+      console.log("Booking successful:", response.data);
+      setModalMessage("ĐẶT TOUR THÀNH CÔNG !");
+      setShowModal(true);
+      setTimeout(() => {
+        navigate("/TourDuLichTravel");
+      }, 1500);
+    } catch (error) {
+      console.error("Error booking tour:", error);
+      setModalMessage(
+        "BẠN ĐÃ ĐẶT TOUR NÀY ĐANG Ở TRẠNG THÁI CHỜ DUYỆT HOẶC ĐÃ THANH TOÁN, VUI LÒNG LIÊN HỆ CÔNG TY ĐỂ HUỶ TOUR NÀY !"
+      );
+      setShowModal(true);
+    }
+  };
 
   useEffect(() => {
     const fetchTourDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-thong-tin-tour/${tourID}`
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-tour/${tourID}`
         );
         setTourDetails(response.data);
         setTotalPrice(
@@ -94,15 +86,13 @@ const BookingForm = () => {
     fetchTourDetails();
   }, [tourID, adultQuantity, childQuantity, infantQuantity]);
 
-
-
- const formatCurrency = (price) => {
-   // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
-   return price.toLocaleString("vi-VN", {
-     style: "currency",
-     currency: "VND",
-   });
- };
+  const formatCurrency = (price) => {
+    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
+    return price.toLocaleString("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    });
+  };
 
   return (
     <div>

@@ -14,10 +14,9 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Table from "react-bootstrap/Table";
 
-const Profile=()=> {
+const Profile = () => {
+  const navigate = useNavigate();
 
-const navigate = useNavigate();
- 
   const { userID } = useParams();
   const [user, setUser] = useState([]);
 
@@ -25,7 +24,7 @@ const navigate = useNavigate();
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-thong-tin-user/${userID}`
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-user/${userID}`
         );
         setUser(response.data);
       } catch (error) {
@@ -40,36 +39,35 @@ const navigate = useNavigate();
     console.log(`Sửa thông tin của user có ID: ${userID}`);
     navigate(`/profile/editprofile/${userID}`);
   };
-   
 
- const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([]);
 
- useEffect(() => {
-   fetchOrdersByUser();
- }, [userID]);
+  useEffect(() => {
+    fetchOrdersByUser();
+  }, [userID]);
 
- const fetchOrdersByUser = async () => {
-   try {
-     const response = await axios.get(
-       `http://localhost:5020/v1/api/admin/api/orders/user/${userID}`
-     );
-     setOrders(response.data);
-   } catch (error) {
-     console.error("Error fetching orders by user:", error);
-   }
- };
-    const formatCurrency = (price) => {
-      // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
-      const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
+  const fetchOrdersByUser = async () => {
+    try {
+      const response = await axios.get(
+        `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/api/orders/user/${userID}`
+      );
+      setOrders(response.data);
+    } catch (error) {
+      console.error("Error fetching orders by user:", error);
+    }
+  };
+  const formatCurrency = (price) => {
+    // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
+    const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
 
-      // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
-      const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
-        currency: "VND",
-      });
+    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
+    const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
+      currency: "VND",
+    });
 
-      // Thêm chữ "VNĐ" vào cuối chuỗi
-      return formattedPrice + " VNĐ";
-    };
+    // Thêm chữ "VNĐ" vào cuối chuỗi
+    return formattedPrice + " VNĐ";
+  };
   const getStatusColor = (status) => {
     switch (status) {
       case "Tiếp nhận":
@@ -257,6 +255,6 @@ const navigate = useNavigate();
       </motion.div>
     </>
   );
-}
+};
 
 export default Profile;

@@ -12,7 +12,6 @@ import LoginIcon from "@mui/icons-material/Login";
 import { useAuth } from "./AuthContextAdmin";
 import Modal from "react-bootstrap/Modal";
 
-
 const GuideThemMoi = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -21,31 +20,29 @@ const GuideThemMoi = () => {
   const [address, setAddress] = useState("");
   const [fullname, setFullname] = useState("");
   const [birthdate, setBirthdate] = useState("");
-    const [selectedTour, setSelectedTour] = useState("");
-const [tourOptions, setTourOptions] = useState([]);
+  const [selectedTour, setSelectedTour] = useState("");
+  const [tourOptions, setTourOptions] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
 
-useEffect(() => {
-  // Fetch the list of tours to populate the dropdown options
-  const fetchTourOptions = async () => {
-    try {
-      const response = await axios.get(
-        "http://localhost:5020/v1/api/admin/lay-danh-sach-tour"
-      );
-      setTourOptions(response.data);
-    } catch (error) {
-      console.error("Error fetching tour options:", error);
-    }
-  };
+  useEffect(() => {
+    // Fetch the list of tours to populate the dropdown options
+    const fetchTourOptions = async () => {
+      try {
+        const response = await axios.get(
+          "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-danh-sach-tour"
+        );
+        setTourOptions(response.data);
+      } catch (error) {
+        console.error("Error fetching tour options:", error);
+      }
+    };
 
-  fetchTourOptions();
-}, []);
+    fetchTourOptions();
+  }, []);
   const handleRegister = async () => {
     if (
-      
       !email ||
-     
       !phone ||
       !address ||
       !fullname ||
@@ -58,7 +55,7 @@ useEffect(() => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5020/v1/api/admin/guide_register",
+        "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/guide_register",
         {
           email,
           phone,
@@ -69,11 +66,8 @@ useEffect(() => {
         }
       );
 
-       setModalMessage(
-          "Thêm mới thành công"
-        );
-        setShowModal(true);
-         
+      setModalMessage("Thêm mới thành công");
+      setShowModal(true);
 
       // Chuyển hướng đến trang login sau 3 giây
       setTimeout(() => {
@@ -81,7 +75,6 @@ useEffect(() => {
       }, 1500);
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        
         setModalMessage(
           "Username hoặc email đã tồn tại. Vui lòng chọn Username hoặc email khác."
         );
@@ -89,7 +82,6 @@ useEffect(() => {
       } else {
         console.error("Registration failed:", error.response.data.message);
         setModalMessage("Đăng ký thất bại. Vui lòng thử lại !");
-        
       }
     }
   };

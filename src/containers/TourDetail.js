@@ -32,21 +32,21 @@ import Table from "react-bootstrap/Table";
 
 const TourDetail = () => {
   const { tourID, userID } = useParams();
-    const { user, userId } = useAuth();
+  const { user, userId } = useAuth();
   console.log("ID:", tourID);
   console.log("user:", user);
   const [tour, setTour] = useState([]);
   const [images, setImages] = useState([]);
-   const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchTour = async () => {
       try {
         const responseTour = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-thong-tin-tour/${tourID}`
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-thong-tin-tour/${tourID}`
         );
         const responseImages = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-hinh-anh-tour/${tourID}`
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-hinh-anh-tour/${tourID}`
         );
 
         setTour(responseTour.data);
@@ -59,28 +59,28 @@ const TourDetail = () => {
 
     fetchTour();
   }, [tourID]);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleEdit = (tourID) => {
-     if (!user) {
-       console.error("User not logged in");
-       navigate("/Login");
-       return;
-     }
+    if (!user) {
+      console.error("User not logged in");
+      navigate("/Login");
+      return;
+    }
     navigate(`/booking-tour/${tourID}`);
   };
-   const [open, setOpen] = React.useState(false);
-   const handleOpen = () => setOpen(true);
-   const handleCloseOpen = () => setOpen(false);
-   const slides = [
-     { src: picture1 },
-     { src: picture2 },
-     { src: picture3 },
-     { src: picture4 },
-     { src: picture5 },
-     { src: picture6 },
-     { src: picture7 },
-   ];
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleCloseOpen = () => setOpen(false);
+  const slides = [
+    { src: picture1 },
+    { src: picture2 },
+    { src: picture3 },
+    { src: picture4 },
+    { src: picture5 },
+    { src: picture6 },
+    { src: picture7 },
+  ];
   const formatCurrency = (price) => {
     // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
     const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
@@ -144,7 +144,7 @@ const TourDetail = () => {
                 fill
               >
                 <Tab eventKey="Chương trình tour" title="Chương trình tour">
-                  <h3 className="text-dark">CHUONG TRÌNH TOUR</h3>
+                  <h3 className="text-dark">CHƯƠNG TRÌNH TOUR</h3>
                   <Row className="d-flex flex-row my-md-5 my-3">
                     <Col className="col-md-6 col-12 mx-md-2 mx-0 mb-md-0 mb-3">
                       {images.length > 0 && (
@@ -210,7 +210,6 @@ const TourDetail = () => {
                   <Table striped bordered hover>
                     <thead>
                       <tr>
-                       
                         <th>Người lớn(Trên 11 tuổi) </th>
                         <th>Trẻ em(4 - 11 tuổi) </th>
                         <th>Trẻ nhỏ({"<"} 4 tuổi) </th>

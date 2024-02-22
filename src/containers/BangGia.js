@@ -13,36 +13,36 @@ import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 
 const BangGia = () => {
-   const [tours, setTours] = useState([]);
-   const [loading, setLoading] = useState(true);
-   useEffect(() => {
-     // Gọi API để lấy danh sách tour từ backend
-     const fetchTours = async () => {
-       try {
-         const response = await axios.get(
-           "http://localhost:5020/v1/api/admin/get-tours"
-         );
-         setTours(response.data);
-         setLoading(false);
-       } catch (error) {
-         console.error("Error fetching tours:", error);
-       }
-     };
+  const [tours, setTours] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    // Gọi API để lấy danh sách tour từ backend
+    const fetchTours = async () => {
+      try {
+        const response = await axios.get(
+          "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/get-tours"
+        );
+        setTours(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching tours:", error);
+      }
+    };
 
-     fetchTours();
-   }, []);
-   const formatCurrency = (price) => {
-     // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
-     return price.toLocaleString("vi-VN", {
-       style: "currency",
-       currency: "VND",
-     });
-   };
-   const handleDetail = (tourID) => {
-     navigate(`/TourDuLichTravel/admin/sua-image-tour/${tourID}`);
-   };
-   const navigate = useNavigate();
-   let index = 1;
+    fetchTours();
+  }, []);
+  const formatCurrency = (price) => {
+    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
+    return price.toLocaleString("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    });
+  };
+  const handleDetail = (tourID) => {
+    navigate(`/TourDuLichTravel/admin/sua-image-tour/${tourID}`);
+  };
+  const navigate = useNavigate();
+  let index = 1;
   return (
     <>
       {" "}
@@ -145,7 +145,6 @@ const BangGia = () => {
               </tbody>
             </Table>
           )}
-          
         </Container>
       </motion.div>
     </>

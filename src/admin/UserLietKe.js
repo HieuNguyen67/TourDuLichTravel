@@ -14,12 +14,12 @@ import { Button } from "react-bootstrap";
 
 const UserLietKe = () => {
   const [users, setUsers] = useState([]);
-const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5020/v1/api/admin/lay-danh-sach-user"
+          "https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/lay-danh-sach-user"
         );
         setUsers(response.data);
         setLoading(false);
@@ -34,15 +34,16 @@ const [loading, setLoading] = useState(true);
   const handleEdit = (userID) => {
     // Xử lý chức năng sửa ở đây, ví dụ: chuyển hướng đến trang sửa thông tin người dùng
     console.log(`Sửa thông tin của user có ID: ${userID}`);
-      navigate(`/TourDuLichTravel/admin/sua-user/${userID}`);
-      
+    navigate(`/TourDuLichTravel/admin/sua-user/${userID}`);
   };
 
   const handleDelete = (userID) => {
     // Xử lý chức năng xoá ở đây
     if (window.confirm("Bạn có chắc muốn xoá người dùng này không?")) {
       axios
-        .delete(`http://localhost:5020/v1/api/admin/xoa-user/${userID}`)
+        .delete(
+          `https://backend-travel-tour-bbvh.onrender.com/v1/api/admin/xoa-user/${userID}`
+        )
         .then(() => {
           // Cập nhật danh sách người dùng sau khi xoá
           setUsers(users.filter((user) => user.id !== userID));
@@ -67,7 +68,7 @@ const [loading, setLoading] = useState(true);
     // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
-  let index=1;
+  let index = 1;
 
   return (
     <>
