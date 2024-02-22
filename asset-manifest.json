@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/TourDuLichTravel/static/css/main.5011d69e.css",
-    "main.js": "/TourDuLichTravel/static/js/main.ea5c45d0.js",
+    "main.js": "/TourDuLichTravel/static/js/main.ee933ae6.js",
     "static/js/787.6f6eb65b.chunk.js": "/TourDuLichTravel/static/js/787.6f6eb65b.chunk.js",
     "static/media/Pasar_terapung.jpg": "/TourDuLichTravel/static/media/Pasar_terapung.7fc4b14204a7d535e85e.jpg",
     "static/media/3.jpg": "/TourDuLichTravel/static/media/3.91bff4a4033c6699ceb5.jpg",
@@ -46,11 +46,11 @@
     "static/media/revicons.woff": "/TourDuLichTravel/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/TourDuLichTravel/index.html",
     "main.5011d69e.css.map": "/TourDuLichTravel/static/css/main.5011d69e.css.map",
-    "main.ea5c45d0.js.map": "/TourDuLichTravel/static/js/main.ea5c45d0.js.map",
+    "main.ee933ae6.js.map": "/TourDuLichTravel/static/js/main.ee933ae6.js.map",
     "787.6f6eb65b.chunk.js.map": "/TourDuLichTravel/static/js/787.6f6eb65b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5011d69e.css",
-    "static/js/main.ea5c45d0.js"
+    "static/js/main.ee933ae6.js"
   ]
 }
