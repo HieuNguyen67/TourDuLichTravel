@@ -40,8 +40,7 @@ const GuideLietKe = () => {
   const handleDelete = (guideID) => {
     // Xử lý chức năng xoá ở đây
     if (window.confirm("Bạn có chắc muốn xoá người dùng này không?")) {
-      axios
-        .delete(
+      axios.delete(
           `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/xoa-guide/${guideID}`
         )
         .then(() => {
