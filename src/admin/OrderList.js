@@ -36,7 +36,7 @@ const OrderList = () => {
   useEffect(() => {
     // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
-      navigate("/TourDuLichTravel/admin");
+      navigate("/admin");
     }
   }, [adminToken, navigate]);
 
@@ -168,9 +168,7 @@ const OrderList = () => {
                       {order.status}
                     </td>
                     <td>
-                      <Link
-                        to={`/TourDuLichTravel/admin/OrderList/${order.id}`}
-                      >
+                      <Link to={`/admin/OrderList/${order.id}`}>
                         <Button className="col-12"> Chi tiết</Button>
                       </Link>
                     </td>

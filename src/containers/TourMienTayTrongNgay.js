@@ -23,10 +23,7 @@ const TourMienTayTrongNgay = () => {
       <Container>
         <p className="mt-4 d-flex">
           <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
-            <Link
-              to="/TourDuLichTravel"
-              className="text-decoration-none text-dark"
-            >
+            <Link to="/" className="text-decoration-none text-dark">
               <span>Trang chủ &nbsp;</span>
             </Link>{" "}
           </motion.a>

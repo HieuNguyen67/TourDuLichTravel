@@ -59,7 +59,7 @@ const TourEdit = () => {
   };
 
   const handleEditImage = (tourID) => {
-    navigate(`/TourDuLichTravel/admin/sua-image-tour/${tourID}`);
+    navigate(`/admin/sua-image-tour/${tourID}`);
   };
 
   const handleSubmit = (e) => {
@@ -73,7 +73,7 @@ const TourEdit = () => {
       )
       .then(() => {
         // Chuyển hướng về trang danh sách tour sau khi cập nhật thành công
-        window.location.href = "/TourDuLichTravel/admin/TourLietKe";
+        window.location.href = "/admin/TourLietKe";
       })
       .catch((error) => {
         console.error("Lỗi khi cập nhật tour và hình ảnh:", error);
@@ -85,7 +85,7 @@ const TourEdit = () => {
   useEffect(() => {
     // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
-      navigate("/TourDuLichTravel/admin");
+      navigate("/admin");
     }
   }, [adminToken, navigate]);
 

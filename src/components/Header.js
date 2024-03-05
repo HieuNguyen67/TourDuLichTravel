@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "../assets/scss/Header.scss";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
 import Logo from "../assets/image/tải_xuống-removebg-preview.png";
@@ -14,10 +14,8 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { useAuth } from "../containers/AuthContext";
 import axios from "axios";
 const Header = (props) => {
-     const { isLoggedIn, logout, user } = useAuth();
+  const { isLoggedIn, logout, user } = useAuth();
 
-
-    
   const [colorChange, setColorchange] = useState(false);
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
@@ -27,7 +25,7 @@ const Header = (props) => {
     }
   };
   window.addEventListener("scroll", changeNavbarColor);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleEdit = (userID) => {
     // Xử lý chức năng sửa ở đây, ví dụ: chuyển hướng đến trang sửa thông tin người dùng
@@ -48,8 +46,8 @@ const Header = (props) => {
           {" "}
           {/* #f8f9fa */}
           <Container className="my-2">
-            <NavLink to="/TourDuLichTravel" className=" decorate">
-              <Navbar.Brand to="/TourDuLichTravel">
+            <NavLink to="/" className=" decorate">
+              <Navbar.Brand to="/">
                 <img
                   alt=""
                   src={Logo}
@@ -76,7 +74,7 @@ const Header = (props) => {
                     >
                       <NavLink
                         className="nav-link "
-                        to="/TourDuLichTravel"
+                        to="/"
                         style={({ isActive, isPending, isTransitioning }) => {
                           return {
                             fontWeight: isActive ? "bold" : "",

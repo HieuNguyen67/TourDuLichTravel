@@ -60,7 +60,7 @@ const TourLietKe = () => {
   };
 
   const handleEdit = (tourID) => {
-    navigate(`/TourDuLichTravel/admin/sua-tour/${tourID}`);
+    navigate(`/admin/sua-tour/${tourID}`);
   };
 
   const { adminToken } = useAuth();
@@ -69,7 +69,7 @@ const TourLietKe = () => {
   useEffect(() => {
     // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
-      navigate("/TourDuLichTravel/admin");
+      navigate("/admin");
     }
   }, [adminToken, navigate]);
 
@@ -107,7 +107,7 @@ const TourLietKe = () => {
             <Row className="d-flex flex-row">
               <Col className="col-11"></Col>
               <Col className="">
-                <Link to="/TourDuLichTravel/admin/TourThemMoi">
+                <Link to="/admin/TourThemMoi">
                   <Button className="col-10 ms-2">Thêm</Button>
                 </Link>
               </Col>

@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
 import "../assets/scss/GioiThieu.scss";
 import { motion } from "framer-motion";
-import anh from "../assets/image/ttxvn_2303dulichtphcm1.jpg"
+import anh from "../assets/image/ttxvn_2303dulichtphcm1.jpg";
 import Header from "../components/Header";
 import BackToTop from "../components/BackToTop";
 
@@ -20,10 +20,7 @@ const GioiThieu = () => {
         <Container>
           <p className="mt-4 d-flex">
             <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
-              <Link
-                to="/TourDuLichTravel"
-                className="text-decoration-none text-dark"
-              >
+              <Link to="/" className="text-decoration-none text-dark">
                 <span>Trang chủ &nbsp;</span>
               </Link>{" "}
             </motion.a>

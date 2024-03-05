@@ -51,7 +51,7 @@ const UserThemMoi = () => {
 
       // Chuyển hướng đến trang login sau 3 giây
       setTimeout(() => {
-        navigate("/TourDuLichTravel/admin/UserLietKe");
+        navigate("/admin/UserLietKe");
       }, 1500);
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -82,7 +82,7 @@ const UserThemMoi = () => {
   useEffect(() => {
     // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
-      navigate("/TourDuLichTravel/admin");
+      navigate("/admin");
     }
   }, [adminToken, navigate]);
 

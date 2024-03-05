@@ -55,7 +55,7 @@ const BookingForm = () => {
       setModalMessage("ĐẶT TOUR THÀNH CÔNG !");
       setShowModal(true);
       setTimeout(() => {
-        navigate("/TourDuLichTravel");
+        navigate("/");
       }, 1500);
     } catch (error) {
       console.error("Error booking tour:", error);

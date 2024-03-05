@@ -13,8 +13,6 @@ import "../assets/scss/TourTongHop.scss";
 import Header from "../components/Header";
 import BackToTop from "../components/BackToTop";
 
-
-
 const TourTongHopPage2 = () => {
   return (
     <>
@@ -25,10 +23,7 @@ const TourTongHopPage2 = () => {
       <Container>
         <p className="mt-4 d-flex">
           <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
-            <Link
-              to="/TourDuLichTravel"
-              className="text-decoration-none text-dark"
-            >
+            <Link to="/" className="text-decoration-none text-dark">
               <span>Trang chủ &nbsp;</span>
             </Link>{" "}
           </motion.a>

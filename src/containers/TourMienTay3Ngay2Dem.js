@@ -6,17 +6,17 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import "../assets/scss/TourMienTay3Ngay2Dem.scss"
-import anhtour from "../assets/image/xnmt03-01-8881.png"
+import "../assets/scss/TourMienTay3Ngay2Dem.scss";
+import anhtour from "../assets/image/xnmt03-01-8881.png";
 import Accordion from "react-bootstrap/Accordion";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import IDTour from "../assets/image/ID.png"
-import ThongbaoTour from "../assets/image/thong-bao.png"
+import IDTour from "../assets/image/ID.png";
+import ThongbaoTour from "../assets/image/thong-bao.png";
 import TimeTour from "../assets/image/time.png";
 import DiaDiemTour from "../assets/image/dia-diem.png";
 import KhachSan from "../assets/image/KSan.png";
 import StarBorderPurple500Icon from "@mui/icons-material/StarBorderPurple500";
-import mieuba from "../assets/image/mieu-ba-chua-xu-nui-sam-an-giang.jpg"
+import mieuba from "../assets/image/mieu-ba-chua-xu-nui-sam-an-giang.jpg";
 import picture1 from "../assets/image/picture-1.png";
 import picture2 from "../assets/image/picture-2.png";
 import picture3 from "../assets/image/picture-3.png";
@@ -31,17 +31,18 @@ import Header from "../components/Header";
 import BackToTop from "../components/BackToTop";
 
 const TourMienTay3Ngay2Dem = () => {
-   const [open, setOpen] = React.useState(false);
-   const handleOpen = () => setOpen(true);
-   const handleCloseOpen = () => setOpen(false);
-    const slides = [
-       { src: picture1 },
-       { src: picture2 },
-       { src: picture3 },
-       { src: picture4 },
-       { src: picture5 },
-       { src: picture6 },
-       { src: picture7 },];
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleCloseOpen = () => setOpen(false);
+  const slides = [
+    { src: picture1 },
+    { src: picture2 },
+    { src: picture3 },
+    { src: picture4 },
+    { src: picture5 },
+    { src: picture6 },
+    { src: picture7 },
+  ];
   return (
     <>
       <BackToTop />
@@ -52,10 +53,7 @@ const TourMienTay3Ngay2Dem = () => {
         <p className="mt-4 d-flex text-center">
           <p>
             <motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}>
-              <Link
-                to="/TourDuLichTravel"
-                className="text-decoration-none text-dark"
-              >
+              <Link to="/" className="text-decoration-none text-dark">
                 <span>Trang chủ</span>
               </Link>{" "}
             </motion.a>

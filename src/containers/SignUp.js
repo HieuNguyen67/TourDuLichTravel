@@ -195,10 +195,7 @@ const SignUp = () => {
               <Col></Col>
               <Col className="col-12">
                 <h6 className="text-center text-break  ">
-                  <NavLink
-                    to="/TourDuLichTravel"
-                    className=" link-dark text-danger decorate "
-                  >
+                  <NavLink to="/" className=" link-dark text-danger decorate ">
                     <ArrowBackIosIcon sx={{ fontSize: 20 }} />
                     Go back
                   </NavLink>

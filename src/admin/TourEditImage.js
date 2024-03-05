@@ -56,7 +56,7 @@ const TourEditImage = () => {
 
       toast.success("Cập nhật hình ảnh tour thành công");
       setTimeout(() => {
-        navigate(`/TourDuLichTravel/admin/sua-tour/${tourID}`);
+        navigate(`/admin/sua-tour/${tourID}`);
       }, 1500);
 
       // hoặc window.location.href = '/danh-sach-tour';
@@ -71,7 +71,7 @@ const TourEditImage = () => {
   useEffect(() => {
     // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
-      navigate("/TourDuLichTravel/admin");
+      navigate("/admin");
     }
   }, [adminToken, navigate]);
 

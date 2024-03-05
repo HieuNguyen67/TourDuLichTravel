@@ -34,13 +34,14 @@ const GuideLietKe = () => {
   const handleEdit = (guideID) => {
     // Xử lý chức năng sửa ở đây, ví dụ: chuyển hướng đến trang sửa thông tin người dùng
     console.log(`Sửa thông tin của user có ID: ${guideID}`);
-    navigate(`/TourDuLichTravel/admin/sua-guide/${guideID}`);
+    navigate(`/admin/sua-guide/${guideID}`);
   };
 
   const handleDelete = (guideID) => {
     // Xử lý chức năng xoá ở đây
     if (window.confirm("Bạn có chắc muốn xoá người dùng này không?")) {
-      axios.delete(
+      axios
+        .delete(
           `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/xoa-guide/${guideID}`
         )
         .then(() => {
@@ -59,7 +60,7 @@ const GuideLietKe = () => {
   useEffect(() => {
     // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
-      navigate("/TourDuLichTravel/admin");
+      navigate("/admin");
     }
   }, [adminToken, navigate]);
 
@@ -84,7 +85,7 @@ const GuideLietKe = () => {
             <Row className="d-flex flex-row">
               <Col className="col-11"></Col>
               <Col className="">
-                <Link to="/TourDuLichTravel/admin/GuideThemMoi">
+                <Link to="/admin/GuideThemMoi">
                   <Button className="col-10 ms-2">Thêm</Button>
                 </Link>
               </Col>

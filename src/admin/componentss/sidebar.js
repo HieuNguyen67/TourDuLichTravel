@@ -16,7 +16,7 @@ const SIDEBAR = () => {
               <MenuItem
                 component={
                   <NavLink
-                    to="/TourDuLichTravel/admin/UserLietKe"
+                    to="/admin/UserLietKe"
                     style={({ isActive, isPending, isTransitioning }) => {
                       return {
                         fontWeight: isActive ? "bold" : "",
@@ -37,7 +37,7 @@ const SIDEBAR = () => {
               <MenuItem
                 component={
                   <NavLink
-                    to="/TourDuLichTravel/admin/UserThemMoi"
+                    to="/admin/UserThemMoi"
                     style={({ isActive, isPending, isTransitioning }) => {
                       return {
                         fontWeight: isActive ? "bold" : "",
@@ -60,7 +60,7 @@ const SIDEBAR = () => {
               <MenuItem
                 component={
                   <NavLink
-                    to="/TourDuLichTravel/admin/TourLietKe"
+                    to="/admin/TourLietKe"
                     style={({ isActive, isPending, isTransitioning }) => {
                       return {
                         fontWeight: isActive ? "bold" : "",
@@ -81,7 +81,7 @@ const SIDEBAR = () => {
               <MenuItem
                 component={
                   <NavLink
-                    to="/TourDuLichTravel/admin/TourThemMoi"
+                    to="/admin/TourThemMoi"
                     style={({ isActive, isPending, isTransitioning }) => {
                       return {
                         fontWeight: isActive ? "bold" : "",
@@ -104,7 +104,7 @@ const SIDEBAR = () => {
               <MenuItem
                 component={
                   <NavLink
-                    to="/TourDuLichTravel/admin/GuideLietKe"
+                    to="/admin/GuideLietKe"
                     style={({ isActive, isPending, isTransitioning }) => {
                       return {
                         fontWeight: isActive ? "bold" : "",
@@ -125,7 +125,7 @@ const SIDEBAR = () => {
               <MenuItem
                 component={
                   <NavLink
-                    to="/TourDuLichTravel/admin/GuideThemMoi"
+                    to="/admin/GuideThemMoi"
                     style={({ isActive, isPending, isTransitioning }) => {
                       return {
                         fontWeight: isActive ? "bold" : "",
@@ -147,7 +147,7 @@ const SIDEBAR = () => {
             <MenuItem
               component={
                 <NavLink
-                  to="/TourDuLichTravel/admin/OrderList"
+                  to="/admin/OrderList"
                   style={({ isActive, isPending, isTransitioning }) => {
                     return {
                       fontWeight: isActive ? "bold" : "",

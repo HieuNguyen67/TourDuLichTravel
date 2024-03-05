@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "../../assets/scss/Header.scss";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Button from "react-bootstrap/Button";
 import Logo from "../../assets/image/tải_xuống-removebg-preview.png";
@@ -14,18 +14,17 @@ import { useAuth } from "../AuthContextAdmin";
 
 import axios from "axios";
 const Header1 = (props) => {
-   const { adminToken, adminUsername, logout } = useAuth();
-const navigate = useNavigate();
+  const { adminToken, adminUsername, logout } = useAuth();
+  const navigate = useNavigate();
 
-const handleLogout = () => {
-  // Thực hiện đăng xuất
-  logout();
+  const handleLogout = () => {
+    // Thực hiện đăng xuất
+    logout();
 
-  // Chuyển hướng về trang login
-  navigate("/TourDuLichTravel/admin");
-};
+    // Chuyển hướng về trang login
+    navigate("/admin");
+  };
 
-    
   const [colorChange, setColorchange] = useState(false);
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
@@ -88,10 +87,7 @@ const handleLogout = () => {
                         </>
                       ) : (
                         <div>
-                          <NavLink
-                            to="/TourDuLichTravel/admin"
-                            className="sidebar decorate"
-                          >
+                          <NavLink to="/admin" className="sidebar decorate">
                             <Button className="mx-2 shadow" variant="warning">
                               Login
                             </Button>{" "}

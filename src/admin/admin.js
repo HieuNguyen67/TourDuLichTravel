@@ -25,7 +25,7 @@ const Admin = () => {
   useEffect(() => {
     // Nếu người dùng đã đăng nhập, chuyển hướng đến trang AdminDashboard
     if (adminToken) {
-      navigate("/TourDuLichTravel/admin/UserLietKe");
+      navigate("/admin/UserLietKe");
     }
   }, [adminToken, navigate]);
 
@@ -48,7 +48,7 @@ const Admin = () => {
 
       toast.success("Login successful!");
       setTimeout(() => {
-        navigate("/TourDuLichTravel/admin/UserLietKe");
+        navigate("/admin/UserLietKe");
       }, 1500);
     } catch (error) {
       toast.error("Sai thông tin đăng nhập. Vui lòng kiểm tra lại !");
@@ -124,10 +124,7 @@ const Admin = () => {
               <Col></Col>
               <Col className="col-12">
                 <h6 className="text-center text-break  ">
-                  <NavLink
-                    to="/TourDuLichTravel"
-                    className=" link-dark text-danger decorate "
-                  >
+                  <NavLink to="/" className=" link-dark text-danger decorate ">
                     <ArrowBackIosIcon sx={{ fontSize: 20 }} />
                     Go back
                   </NavLink>

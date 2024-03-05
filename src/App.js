@@ -77,53 +77,53 @@ function App() {
       </AuthProvider>
       <AuthProvider1>
         <Routes>
-          <Route path="/TourDuLichTravel/admin" element={<Admin />} />{" "}
+          <Route path="/admin" element={<Admin />} />{" "}
           <Route
-            path="/TourDuLichTravel/admin/UserLietKe"
+            path="/admin/UserLietKe"
             element={<UserLietKe />}
           />
           <Route
-            path="/TourDuLichTravel/admin/UserThemMoi"
+            path="/admin/UserThemMoi"
             element={<UserThemMoi />}
           />
           <Route
-            path="/TourDuLichTravel/admin/GuideLietKe"
+            path="/admin/GuideLietKe"
             element={<GuideLietKe />}
           />
           <Route
-            path="/TourDuLichTravel/admin/GuideThemMoi"
+            path="/admin/GuideThemMoi"
             element={<GuideThemMoi />}
           />
           <Route
-            path="/TourDuLichTravel/admin/TourThemMoi"
+            path="/admin/TourThemMoi"
             element={<TourThemMoi />}
           />
           <Route
-            path="/TourDuLichTravel/admin/TourLietKe"
+            path="/admin/TourLietKe"
             element={<TourLietKe />}
           />
           <Route
-            path="/TourDuLichTravel/admin/OrderList"
+            path="/admin/OrderList"
             element={<OrderList />}
           />
           <Route
-            path="/TourDuLichTravel/admin/OrderList/:orderID"
+            path="/admin/OrderList/:orderID"
             element={<OrderDetails />}
           />
           <Route
-            path="/TourDuLichTravel/admin/sua-user/:userID"
+            path="/admin/sua-user/:userID"
             element={<UserEdit />}
           />
           <Route
-            path="/TourDuLichTravel/admin/sua-guide/:guideID"
+            path="/admin/sua-guide/:guideID"
             element={<GuideEdit />}
           />
           <Route
-            path="/TourDuLichTravel/admin/sua-tour/:tourID"
+            path="/admin/sua-tour/:tourID"
             element={<TourEdit />}
           />
           <Route
-            path="/TourDuLichTravel/admin/sua-image-tour/:tourID"
+            path="/admin/sua-image-tour/:tourID"
             element={<TourEditImage />}
           />
         </Routes>

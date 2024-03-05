@@ -78,7 +78,7 @@ const GuideEdit = () => {
 
         // Chuyển hướng đến trang login sau 3 giây
         setTimeout(() => {
-          navigate("/TourDuLichTravel/admin/GuideLietKe");
+          navigate("/admin/GuideLietKe");
         }, 1500);
       })
       .catch((error) => {
@@ -90,7 +90,7 @@ const GuideEdit = () => {
   useEffect(() => {
     // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
-      navigate("/TourDuLichTravel/admin");
+      navigate("/admin");
     }
   }, [adminToken, navigate]);
 

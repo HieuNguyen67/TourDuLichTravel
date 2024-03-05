@@ -65,7 +65,7 @@ const TourThemMoi = () => {
 
       // Chuyển hướng đến trang login sau 3 giây
       setTimeout(() => {
-        navigate("/TourDuLichTravel/admin/TourLietKe");
+        navigate("/admin/TourLietKe");
       }, 1500);
 
       // Xử lý khi tour được thêm thành công, ví dụ hiển thị thông báo, chuyển hướng, v.v.
@@ -79,7 +79,7 @@ const TourThemMoi = () => {
   useEffect(() => {
     // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
-      navigate("/TourDuLichTravel/admin");
+      navigate("/admin");
     }
   }, [adminToken, navigate]);
 

@@ -52,7 +52,7 @@ const Login = () => {
 
         // Chuyển hướng đến trang login sau 3 giây
         setTimeout(() => {
-          navigate("/TourDuLichTravel");
+          navigate("/");
         }, 1500);
       } else {
         toast.error("Sai thông tin đăng nhập. Vui lòng kiểm tra lại !");
@@ -134,10 +134,7 @@ const Login = () => {
               <Col></Col>
               <Col className="col-12">
                 <h6 className="text-center text-break  ">
-                  <NavLink
-                    to="/TourDuLichTravel"
-                    className=" link-dark text-danger decorate "
-                  >
+                  <NavLink to="/" className=" link-dark text-danger decorate ">
                     <ArrowBackIosIcon sx={{ fontSize: 20 }} />
                     Go back
                   </NavLink>

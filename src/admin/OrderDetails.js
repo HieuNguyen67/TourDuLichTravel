@@ -40,7 +40,7 @@ const OrderDetails = () => {
   useEffect(() => {
     // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
-      navigate("/TourDuLichTravel/admin");
+      navigate("/admin");
     }
   }, [adminToken, navigate]);
 
@@ -80,7 +80,7 @@ const OrderDetails = () => {
         position: toast.POSITION.TOP_RIGHT,
       });
       setTimeout(() => {
-        navigate("/TourDuLichTravel/admin/OrderList");
+        navigate("/admin/OrderList");
       }, 1500);
     } catch (error) {
       console.error("Error updating status:", error);

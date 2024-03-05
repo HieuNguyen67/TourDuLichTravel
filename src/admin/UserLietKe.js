@@ -34,7 +34,7 @@ const UserLietKe = () => {
   const handleEdit = (userID) => {
     // Xử lý chức năng sửa ở đây, ví dụ: chuyển hướng đến trang sửa thông tin người dùng
     console.log(`Sửa thông tin của user có ID: ${userID}`);
-    navigate(`/TourDuLichTravel/admin/sua-user/${userID}`);
+    navigate(`/admin/sua-user/${userID}`);
   };
 
   const handleDelete = (userID) => {
@@ -60,7 +60,7 @@ const UserLietKe = () => {
   useEffect(() => {
     // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
-      navigate("/TourDuLichTravel/admin");
+      navigate("/admin");
     }
   }, [adminToken, navigate]);
 
@@ -85,7 +85,7 @@ const UserLietKe = () => {
             <Row className="d-flex flex-row">
               <Col className="col-11"></Col>
               <Col className="">
-                <Link to="/TourDuLichTravel/admin/UserThemMoi">
+                <Link to="/admin/UserThemMoi">
                   <Button className="col-10 ms-2">Thêm</Button>
                 </Link>
               </Col>
