@@ -37,6 +37,7 @@ import OrderDetails from "./admin/OrderDetails";
 import GuideLietKe from "./admin/GuideLietKe";
 import GuideThemMoi from "./admin/GuideThemMoi";
 import GuideEdit from "./admin/GuideEdit";
+import NotFound from "./containers/NotFound";
 function App() {
   
   return (
@@ -46,6 +47,7 @@ function App() {
         <div>
           {" "}
           <Routes>
+            <Route path="*" index element={<NotFound />} />
             <Route path="/" element={<Home />} />
             <Route path="/GioiThieu" element={<GioiThieu />} />
             <Route path="/HinhAnh" element={<HinhAnh />} />
@@ -78,50 +80,17 @@ function App() {
       <AuthProvider1>
         <Routes>
           <Route path="/admin" element={<Admin />} />{" "}
-          <Route
-            path="/admin/UserLietKe"
-            element={<UserLietKe />}
-          />
-          <Route
-            path="/admin/UserThemMoi"
-            element={<UserThemMoi />}
-          />
-          <Route
-            path="/admin/GuideLietKe"
-            element={<GuideLietKe />}
-          />
-          <Route
-            path="/admin/GuideThemMoi"
-            element={<GuideThemMoi />}
-          />
-          <Route
-            path="/admin/TourThemMoi"
-            element={<TourThemMoi />}
-          />
-          <Route
-            path="/admin/TourLietKe"
-            element={<TourLietKe />}
-          />
-          <Route
-            path="/admin/OrderList"
-            element={<OrderList />}
-          />
-          <Route
-            path="/admin/OrderList/:orderID"
-            element={<OrderDetails />}
-          />
-          <Route
-            path="/admin/sua-user/:userID"
-            element={<UserEdit />}
-          />
-          <Route
-            path="/admin/sua-guide/:guideID"
-            element={<GuideEdit />}
-          />
-          <Route
-            path="/admin/sua-tour/:tourID"
-            element={<TourEdit />}
-          />
+          <Route path="/admin/UserLietKe" element={<UserLietKe />} />
+          <Route path="/admin/UserThemMoi" element={<UserThemMoi />} />
+          <Route path="/admin/GuideLietKe" element={<GuideLietKe />} />
+          <Route path="/admin/GuideThemMoi" element={<GuideThemMoi />} />
+          <Route path="/admin/TourThemMoi" element={<TourThemMoi />} />
+          <Route path="/admin/TourLietKe" element={<TourLietKe />} />
+          <Route path="/admin/OrderList" element={<OrderList />} />
+          <Route path="/admin/OrderList/:orderID" element={<OrderDetails />} />
+          <Route path="/admin/sua-user/:userID" element={<UserEdit />} />
+          <Route path="/admin/sua-guide/:guideID" element={<GuideEdit />} />
+          <Route path="/admin/sua-tour/:tourID" element={<TourEdit />} />
           <Route
             path="/admin/sua-image-tour/:tourID"
             element={<TourEditImage />}
