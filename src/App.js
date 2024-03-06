@@ -72,13 +72,12 @@ function App() {
             <Route
               path="/profile/editprofile/:userID"
               element={<ProfileEdit />}
-            />
+            />{" "}
           </Routes>
         </div>
       </AuthProvider>
       <AuthProvider1>
         <Routes>
-          <Route path="*" element={<Navigate to="/" />} />
           <Route path="/admin" element={<Admin />} />{" "}
           <Route path="/admin/UserLietKe" element={<UserLietKe />} />
           <Route path="/admin/UserThemMoi" element={<UserThemMoi />} />
