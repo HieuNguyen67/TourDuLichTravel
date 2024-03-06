@@ -47,7 +47,6 @@ function App() {
         <div>
           {" "}
           <Routes>
-            <Route path="*" index element={<NotFound />} />
             <Route path="/" element={<Home />} />
             <Route path="/GioiThieu" element={<GioiThieu />} />
             <Route path="/HinhAnh" element={<HinhAnh />} />
@@ -79,6 +78,7 @@ function App() {
       </AuthProvider>
       <AuthProvider1>
         <Routes>
+          <Route path="*" index element={<NotFound />} />
           <Route path="/admin" element={<Admin />} />{" "}
           <Route path="/admin/UserLietKe" element={<UserLietKe />} />
           <Route path="/admin/UserThemMoi" element={<UserThemMoi />} />
