@@ -28,7 +28,6 @@ const Header = (props) => {
   const navigate = useNavigate();
 
   const handleEdit = (userID) => {
-    // Xử lý chức năng sửa ở đây, ví dụ: chuyển hướng đến trang sửa thông tin người dùng
     console.log(`Sửa thông tin của user có ID: ${userID}`);
     navigate(`/profile/${userID}`);
   };

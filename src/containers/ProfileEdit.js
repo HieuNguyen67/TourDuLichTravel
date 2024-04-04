@@ -1,4 +1,3 @@
-// File: src/components/Profile.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "../containers/AuthContext";
@@ -46,17 +45,14 @@ function ProfileEdit() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Gửi yêu cầu cập nhật thông tin người dùng lên server
     axios
       .put(
         `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-user/${userID}`,
         user
       )
       .then(() => {
-        // Chuyển hướng về trang danh sách người dùng sau khi cập nhật thành công
         toast.success("Cập nhật thành công");
 
-        // Chuyển hướng đến trang login sau 3 giây
         setTimeout(() => {
           navigate(`/profile/${userID}`);
         }, 1500);

@@ -8,7 +8,6 @@ class PriceCalculator extends Component {
     this.state = {
       quantity: 1,
       quantity1:0,
-      //   unitPrice: 10, // Đổi đơn giá mặc định theo nhu cầu
     };
   }
   

@@ -32,20 +32,17 @@ const GuideLietKe = () => {
   }, []);
 
   const handleEdit = (guideID) => {
-    // Xử lý chức năng sửa ở đây, ví dụ: chuyển hướng đến trang sửa thông tin người dùng
     console.log(`Sửa thông tin của user có ID: ${guideID}`);
     navigate(`/admin/sua-guide/${guideID}`);
   };
 
   const handleDelete = (guideID) => {
-    // Xử lý chức năng xoá ở đây
     if (window.confirm("Bạn có chắc muốn xoá người dùng này không?")) {
       axios
         .delete(
           `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/xoa-guide/${guideID}`
         )
         .then(() => {
-          // Cập nhật danh sách người dùng sau khi xoá
           setUsers(users.filter((user) => user.id !== guideID));
         })
         .catch((error) => {
@@ -58,14 +55,12 @@ const GuideLietKe = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
       navigate("/admin");
     }
   }, [adminToken, navigate]);
 
   if (!adminToken) {
-    // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
   let index = 1;

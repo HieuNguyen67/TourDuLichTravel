@@ -18,10 +18,7 @@ const Header1 = (props) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Thực hiện đăng xuất
     logout();
-
-    // Chuyển hướng về trang login
     navigate("/admin");
   };
 

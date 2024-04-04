@@ -16,7 +16,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BackToTop from "../components/BackToTop";
 
-// Import useHistory
 
 const Login = () => {
   const [validated, setValidated] = useState(false);
@@ -50,7 +49,6 @@ const Login = () => {
         login(data.user, data.token);
         toast.success("Đăng nhập thành công !");
 
-        // Chuyển hướng đến trang login sau 3 giây
         setTimeout(() => {
           navigate("/");
         }, 1500);

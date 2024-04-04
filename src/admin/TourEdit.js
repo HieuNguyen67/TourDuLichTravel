@@ -65,14 +65,12 @@ const TourEdit = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Gửi yêu cầu cập nhật thông tin tour và hình ảnh lên server
     axios
       .put(
         `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-tour/${tourID}`,
         tour
       )
       .then(() => {
-        // Chuyển hướng về trang danh sách tour sau khi cập nhật thành công
         window.location.href = "/admin/TourLietKe";
       })
       .catch((error) => {
@@ -83,14 +81,12 @@ const TourEdit = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
       navigate("/admin");
     }
   }, [adminToken, navigate]);
 
   if (!adminToken) {
-    // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
 

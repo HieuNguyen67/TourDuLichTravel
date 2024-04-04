@@ -23,7 +23,6 @@ const Admin = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Nếu người dùng đã đăng nhập, chuyển hướng đến trang AdminDashboard
     if (adminToken) {
       navigate("/admin/UserLietKe");
     }
@@ -40,11 +39,7 @@ const Admin = () => {
       );
       const { token, username } = response.data;
 
-      // Lưu thông tin người dùng vào context
       login(token, username);
-
-      // Chuyển hướng đến trang admin sau khi đăng nhập thành công
-      // Ví dụ: history.push('/admin/dashboard');
 
       toast.success("Login successful!");
       setTimeout(() => {

@@ -53,7 +53,6 @@ const SignUp = () => {
 
       toast.success(response.data.message);
 
-      // Chuyển hướng đến trang login sau 3 giây
       setTimeout(() => {
         navigate("/Login");
       }, 1500);
@@ -69,15 +68,13 @@ const SignUp = () => {
     }
   };
 
-  // Hàm kiểm tra định dạng email
   const isValidEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(value);
   };
 
-  // Hàm kiểm tra định dạng số điện thoại
   const isValidPhone = (value) => {
-    const phoneRegex = /^\d{10}$/; // Giả sử số điện thoại có 10 chữ số
+    const phoneRegex = /^\d{10}$/;
     return phoneRegex.test(value);
   };
   return (

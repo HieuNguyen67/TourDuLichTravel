@@ -45,15 +45,12 @@ const Bookingtour = () => {
     fetchTour();
   }, [tourID]);
   const formatCurrency = (price) => {
-    // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
-    const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
+    const priceInteger = Math.round(price * 100); 
 
-    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
       currency: "VND",
     });
 
-    // Thêm chữ "VNĐ" vào cuối chuỗi
     return formattedPrice + " VNĐ";
   };
   const [user, setUser] = useState({
@@ -88,17 +85,14 @@ const Bookingtour = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Gửi yêu cầu cập nhật thông tin người dùng lên server
     axios
       .put(
         `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-user/${userId}`,
         user
       )
       .then(() => {
-        // Chuyển hướng về trang danh sách người dùng sau khi cập nhật thành công
         window.alert("Cập nhật thành công!");
 
-        // Chuyển hướng đến trang login sau 3 giây
       })
       .catch((error) => {
         console.error("Lỗi khi cập nhật người dùng:", error);
@@ -113,11 +107,7 @@ const Bookingtour = () => {
       <Container>
         <Row className="mt-5">
           <Col className="col-md-4 col-12">
-            {/* <img
-              src={pic2}
-              className="w-100 detailimage"
-              style={{ objectFit: "cover" }}
-            /> */}
+           
             {images.length > 0 && (
               <img
                 src={`data:image/jpeg;base64,${images[0]}`}

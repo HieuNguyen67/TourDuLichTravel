@@ -36,12 +36,10 @@ const TourEditImage = () => {
     try {
       const formData = new FormData();
 
-      // Lặp qua từng tệp hình ảnh và append vào formData
       for (let i = 0; i < data.images.length; i++) {
         formData.append("images", data.images[i]);
       }
 
-      // Gửi yêu cầu cập nhật hình ảnh lên server
       await axios.put(
         `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-hinh-anh-tour/${tourID}`,
         formData,
@@ -52,14 +50,11 @@ const TourEditImage = () => {
         }
       );
 
-      // Thông báo cập nhật thành công hoặc chuyển hướng về trang danh sách tour
-
       toast.success("Cập nhật hình ảnh tour thành công");
       setTimeout(() => {
         navigate(`/admin/sua-tour/${tourID}`);
       }, 1500);
 
-      // hoặc window.location.href = '/danh-sach-tour';
     } catch (error) {
       console.error("Lỗi khi cập nhật hình ảnh tour:", error);
     }
@@ -69,14 +64,12 @@ const TourEditImage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
       navigate("/admin");
     }
   }, [adminToken, navigate]);
 
   if (!adminToken) {
-    // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
 

@@ -19,7 +19,6 @@ const OrderDetails = () => {
   const [orderDetails, setOrderDetails] = useState({});
   const [newStatus, setNewStatus] = useState("");
   useEffect(() => {
-    // Fetch order details when the component mounts
     fetchOrderDetails();
   }, [orderID]);
 
@@ -38,26 +37,21 @@ const OrderDetails = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
       navigate("/admin");
     }
   }, [adminToken, navigate]);
 
   if (!adminToken) {
-    // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
   const formatCurrency = (price) => {
-    // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
-    const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
+    const priceInteger = Math.round(price * 100); 
 
-    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
       currency: "VND",
     });
 
-    // Thêm chữ "VNĐ" vào cuối chuỗi
     return formattedPrice + " VNĐ";
   };
 
@@ -67,14 +61,12 @@ const OrderDetails = () => {
 
   const handleUpdateStatus = async () => {
     try {
-      // Send a request to update the status
       await axios.put(
         `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/api/orders/${orderID}/status`,
         {
           status: newStatus,
         }
       );
-      // Refetch order details to update the displayed information
       fetchOrderDetails();
       toast.success("Cập nhật trạng thái thành công", {
         position: toast.POSITION.TOP_RIGHT,

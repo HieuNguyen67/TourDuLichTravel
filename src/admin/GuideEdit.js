@@ -27,7 +27,6 @@ const GuideEdit = () => {
   });
   const [tourOptions, setTourOptions] = useState([]);
   useEffect(() => {
-    // Fetch the list of tours to populate the dropdown options
     const fetchTourOptions = async () => {
       try {
         const response = await axios.get(
@@ -66,17 +65,14 @@ const GuideEdit = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Gửi yêu cầu cập nhật thông tin người dùng lên server
     axios
       .put(
         `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-guide/${guideID}`,
         user
       )
       .then(() => {
-        // Chuyển hướng về trang danh sách người dùng sau khi cập nhật thành công
         toast.success("Cập nhật thành công");
 
-        // Chuyển hướng đến trang login sau 3 giây
         setTimeout(() => {
           navigate("/admin/GuideLietKe");
         }, 1500);
@@ -88,14 +84,12 @@ const GuideEdit = () => {
   const { adminToken } = useAuth();
 
   useEffect(() => {
-    // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
       navigate("/admin");
     }
   }, [adminToken, navigate]);
 
   if (!adminToken) {
-    // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
 

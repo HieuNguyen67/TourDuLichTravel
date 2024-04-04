@@ -49,7 +49,6 @@ const UserThemMoi = () => {
 
       toast.success(response.data.message);
 
-      // Chuyển hướng đến trang login sau 3 giây
       setTimeout(() => {
         navigate("/admin/UserLietKe");
       }, 1500);
@@ -65,29 +64,25 @@ const UserThemMoi = () => {
     }
   };
 
-  // Hàm kiểm tra định dạng email
   const isValidEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(value);
   };
 
-  // Hàm kiểm tra định dạng số điện thoại
   const isValidPhone = (value) => {
-    const phoneRegex = /^\d{10}$/; // Giả sử số điện thoại có 10 chữ số
+    const phoneRegex = /^\d{10}$/; 
     return phoneRegex.test(value);
   };
   const { adminToken } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
       navigate("/admin");
     }
   }, [adminToken, navigate]);
 
   if (!adminToken) {
-    // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
 

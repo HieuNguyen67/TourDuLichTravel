@@ -16,7 +16,6 @@ const BangGia = () => {
   const [tours, setTours] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    // Gọi API để lấy danh sách tour từ backend
     const fetchTours = async () => {
       try {
         const response = await axios.get(
@@ -32,7 +31,6 @@ const BangGia = () => {
     fetchTours();
   }, []);
   const formatCurrency = (price) => {
-    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
     return price.toLocaleString("vi-VN", {
       style: "currency",
       currency: "VND",

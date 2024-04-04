@@ -63,12 +63,10 @@ const TourThemMoi = () => {
       );
       toast.success("Thêm Tour Mới Thành Công !");
 
-      // Chuyển hướng đến trang login sau 3 giây
       setTimeout(() => {
         navigate("/admin/TourLietKe");
       }, 1500);
 
-      // Xử lý khi tour được thêm thành công, ví dụ hiển thị thông báo, chuyển hướng, v.v.
     } catch (error) {
       console.error("Error adding tour:", error);
     }
@@ -77,14 +75,12 @@ const TourThemMoi = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
       navigate("/admin");
     }
   }, [adminToken, navigate]);
 
   if (!adminToken) {
-    // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
   return (

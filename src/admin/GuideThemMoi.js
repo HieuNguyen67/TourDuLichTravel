@@ -26,7 +26,6 @@ const GuideThemMoi = () => {
   const [modalMessage, setModalMessage] = useState("");
 
   useEffect(() => {
-    // Fetch the list of tours to populate the dropdown options
     const fetchTourOptions = async () => {
       try {
         const response = await axios.get(
@@ -69,7 +68,6 @@ const GuideThemMoi = () => {
       setModalMessage("Thêm mới thành công");
       setShowModal(true);
 
-      // Chuyển hướng đến trang login sau 3 giây
       setTimeout(() => {
         navigate("/admin/GuideLietKe");
       }, 1500);
@@ -86,29 +84,25 @@ const GuideThemMoi = () => {
     }
   };
 
-  // Hàm kiểm tra định dạng email
   const isValidEmail = (value) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(value);
   };
 
-  // Hàm kiểm tra định dạng số điện thoại
   const isValidPhone = (value) => {
-    const phoneRegex = /^\d{10}$/; // Giả sử số điện thoại có 10 chữ số
+    const phoneRegex = /^\d{10}$/; 
     return phoneRegex.test(value);
   };
   const { adminToken } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
       navigate("/admin");
     }
   }, [adminToken, navigate]);
 
   if (!adminToken) {
-    // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
 

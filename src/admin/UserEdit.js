@@ -50,17 +50,14 @@ const UserEdit = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Gửi yêu cầu cập nhật thông tin người dùng lên server
     axios
       .put(
         `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-user/${userID}`,
         user
       )
       .then(() => {
-        // Chuyển hướng về trang danh sách người dùng sau khi cập nhật thành công
         toast.success("Cập nhật thành công");
 
-        // Chuyển hướng đến trang login sau 3 giây
         setTimeout(() => {
           navigate("/admin/UserLietKe");
         }, 1500);
@@ -72,14 +69,12 @@ const UserEdit = () => {
   const { adminToken } = useAuth();
 
   useEffect(() => {
-    // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
       navigate("/admin");
     }
   }, [adminToken, navigate]);
 
   if (!adminToken) {
-    // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
 

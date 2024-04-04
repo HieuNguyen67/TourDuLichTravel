@@ -17,7 +17,6 @@ const TourTongHop = () => {
   const [tours, setTours] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    // Gọi API để lấy danh sách tour từ backend
     const fetchTours = async () => {
       try {
         const response = await axios.get(
@@ -33,15 +32,12 @@ const TourTongHop = () => {
     fetchTours();
   }, []);
   const formatCurrency = (price) => {
-    // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
-    const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
+    const priceInteger = Math.round(price * 100); 
 
-    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
       currency: "VND",
     });
 
-    // Thêm chữ "VNĐ" vào cuối chuỗi
     return formattedPrice + " VNĐ";
   };
   const handleDetail = (tourID) => {

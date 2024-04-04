@@ -28,7 +28,6 @@ import picture7 from "../assets/image/picture-7.png";
 import Lightbox from "yet-another-react-lightbox";
 import Spinner from "react-bootstrap/Spinner";
 import Table from "react-bootstrap/Table";
-// Import useHistory
 
 const TourDetail = () => {
   const { tourID, userID } = useParams();
@@ -82,15 +81,12 @@ const TourDetail = () => {
     { src: picture7 },
   ];
   const formatCurrency = (price) => {
-    // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
-    const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
+    const priceInteger = Math.round(price * 100);
 
-    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
       currency: "VND",
     });
 
-    // Thêm chữ "VNĐ" vào cuối chuỗi
     return formattedPrice + " VNĐ";
   };
   return (

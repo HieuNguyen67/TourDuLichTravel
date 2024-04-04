@@ -15,7 +15,6 @@ const TourLietKe = () => {
   const [tours, setTours] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    // Gọi API để lấy danh sách tour từ backend
     const fetchTours = async () => {
       try {
         const response = await axios.get(
@@ -29,32 +28,25 @@ const TourLietKe = () => {
     };
 
     fetchTours();
-  }, []); // Chạy một lần khi component mount
+  }, []); 
 
   const handleDelete = async (tourID) => {
     try {
-      // Hiển thị thông báo xác nhận
       const confirm = window.confirm(
         "Bạn có chắc chắn muốn xóa tour này không?"
       );
       if (!confirm) {
-        return; // Người dùng không xác nhận, không thực hiện xóa
+        return; 
       }
 
-      // Gọi API để xóa tour từ backend
       await axios.delete(
         `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/delete-tour/${tourID}`
       );
 
-      // Cập nhật lại danh sách tour sau khi xóa
       setTours(tours.filter((tour) => tour.id !== tourID));
-
-      // Hiển thị thông báo thành công
       toast.success("Tour đã được xóa thành công.");
     } catch (error) {
       console.error("Lỗi khi xóa tour:", error);
-
-      // Hiển thị thông báo lỗi
       toast.error("Tour đã có Khách hàng đặt.");
     }
   };
@@ -67,26 +59,20 @@ const TourLietKe = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
       navigate("/admin");
     }
   }, [adminToken, navigate]);
 
   if (!adminToken) {
-    // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
   const formatCurrency = (price) => {
-    // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
-    const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
-
-    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
+    const priceInteger = Math.round(price * 100); 
     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
       currency: "VND",
     });
 
-    // Thêm chữ "VNĐ" vào cuối chuỗi
     return formattedPrice + " VNĐ";
   };
 

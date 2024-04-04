@@ -16,7 +16,6 @@ const OrderList = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    // Fetch the list of orders when the component mounts
     fetchOrders();
   }, []);
 
@@ -34,26 +33,21 @@ const OrderList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Kiểm tra nếu người dùng chưa đăng nhập, chuyển hướng về trang login
     if (!adminToken) {
       navigate("/admin");
     }
   }, [adminToken, navigate]);
 
   if (!adminToken) {
-    // Nếu chưa đăng nhập, không hiển thị nội dung của trang
     return null;
   }
   const formatCurrency = (price) => {
-    // Chuyển đổi giá trị DECIMAL(10) sang số nguyên
-    const priceInteger = Math.round(price * 100); // Giả sử 2 chữ số thập phân
+    const priceInteger = Math.round(price * 100); 
 
-    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
       currency: "VND",
     });
 
-    // Thêm chữ "VNĐ" vào cuối chuỗi
     return formattedPrice;
   };
   const getStatusColor = (status) => {
@@ -61,15 +55,14 @@ const OrderList = () => {
       case "Tiếp nhận":
         return "yellow";
       case "Đã thanh toán":
-        return "#99FF99"; // Màu cam cho trạng thái 'Pending'
-      // Màu xanh cho trạng thái 'Confirmed'
+        return "#99FF99"; 
       case "Đã huỷ":
         return "#FF6633";
       case "Đã kết thúc":
         return "#FF9900";
-      // Màu đỏ cho trạng thái 'Cancelled'
+   
       default:
-        return "black"; // Màu mặc định nếu trạng thái không khớp với bất kỳ trường hợp nào
+        return "black"; 
     }
   };
 

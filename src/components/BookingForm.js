@@ -1,4 +1,3 @@
-// BookingForm.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
@@ -87,7 +86,6 @@ const BookingForm = () => {
   }, [tourID, adultQuantity, childQuantity, infantQuantity]);
 
   const formatCurrency = (price) => {
-    // Sử dụng hàm toLocaleString để định dạng giá theo kiểu VNĐ
     return price.toLocaleString("vi-VN", {
       style: "currency",
       currency: "VND",
