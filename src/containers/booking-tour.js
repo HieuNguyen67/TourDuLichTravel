@@ -29,10 +29,10 @@ const Bookingtour = () => {
     const fetchTour = async () => {
       try {
         const responseTour = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-thong-tin-tour/${tourID}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-tour/${tourID}`
         );
         const responseImages = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-hinh-anh-tour/${tourID}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-hinh-anh-tour/${tourID}`
         );
 
         setTour(responseTour.data);
@@ -65,7 +65,7 @@ const Bookingtour = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-thong-tin-user/${userId}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-user/${userId}`
         );
         setUser(response.data);
       } catch (error) {
@@ -86,7 +86,10 @@ const Bookingtour = () => {
     e.preventDefault();
 
     axios
-      .put(`http://localhost:5020/v1/api/admin/cap-nhat-user/${userId}`, user)
+      .put(
+        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-user/${userId}`,
+        user
+      )
       .then(() => {
         window.alert("Cập nhật thành công!");
       })

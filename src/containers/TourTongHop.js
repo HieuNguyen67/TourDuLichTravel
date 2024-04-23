@@ -20,7 +20,7 @@ const TourTongHop = () => {
     const fetchTours = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5020/v1/api/admin/get-tours"
+          "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/get-tours"
         );
         setTours(response.data);
         setLoading(false);

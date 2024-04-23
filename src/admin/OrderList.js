@@ -22,7 +22,7 @@ const OrderList = () => {
   const fetchOrders = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5020/v1/api/admin/api/orders"
+        "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/api/orders"
       );
       setOrders(response.data);
     } catch (error) {

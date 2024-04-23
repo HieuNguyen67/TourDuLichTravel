@@ -21,7 +21,7 @@ const TourEditImage = () => {
     const fetchTour = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-thong-tin-tour/${tourID}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-tour/${tourID}`
         );
         setTour(response.data);
       } catch (error) {
@@ -41,7 +41,7 @@ const TourEditImage = () => {
       }
 
       await axios.put(
-        `http://localhost:5020/v1/api/admin/cap-nhat-hinh-anh-tour/${tourID}`,
+        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-hinh-anh-tour/${tourID}`,
         formData,
         {
           headers: {

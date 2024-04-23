@@ -40,7 +40,7 @@ const BookingForm = () => {
       }
 
       const response = await axios.post(
-        "http://localhost:5020/v1/api/admin/bookings",
+        "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/bookings",
         {
           userId,
           tourID,
@@ -69,7 +69,7 @@ const BookingForm = () => {
     const fetchTourDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-thong-tin-tour/${tourID}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-tour/${tourID}`
         );
         setTourDetails(response.data);
         setTotalPrice(

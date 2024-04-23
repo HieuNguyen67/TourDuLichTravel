@@ -36,7 +36,7 @@ const UserThemMoi = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5020/v1/api/admin/register",
+        "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/register",
         {
           username,
           email,

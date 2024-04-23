@@ -19,7 +19,7 @@ const UserLietKe = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5020/v1/api/admin/lay-danh-sach-user"
+          "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-danh-sach-user"
         );
         setUsers(response.data);
         setLoading(false);
@@ -39,7 +39,9 @@ const UserLietKe = () => {
   const handleDelete = (userID) => {
     if (window.confirm("Bạn có chắc muốn xoá người dùng này không?")) {
       axios
-        .delete(`http://localhost:5020/v1/api/admin/xoa-user/${userID}`)
+        .delete(
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/xoa-user/${userID}`
+        )
         .then(() => {
           setUsers(users.filter((user) => user.id !== userID));
         })

@@ -25,7 +25,7 @@ const OrderDetails = () => {
   const fetchOrderDetails = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5020/v1/api/admin/api/orders/${orderID}`
+        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/api/orders/${orderID}`
       );
       setOrderDetails(response.data);
     } catch (error) {
@@ -62,7 +62,7 @@ const OrderDetails = () => {
   const handleUpdateStatus = async () => {
     try {
       await axios.put(
-        `http://localhost:5020/v1/api/admin/api/orders/${orderID}/status`,
+        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/api/orders/${orderID}/status`,
         {
           status: newStatus,
         }

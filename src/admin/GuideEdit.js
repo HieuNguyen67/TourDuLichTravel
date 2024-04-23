@@ -30,7 +30,7 @@ const GuideEdit = () => {
     const fetchTourOptions = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5020/v1/api/admin/lay-danh-sach-tour"
+          "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-danh-sach-tour"
         );
         setTourOptions(response.data);
       } catch (error) {
@@ -44,7 +44,7 @@ const GuideEdit = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5020/v1/api/admin/lay-thong-tin-guide/${guideID}`
+          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-guide/${guideID}`
         );
         setUser(response.data);
       } catch (error) {
@@ -66,7 +66,10 @@ const GuideEdit = () => {
     e.preventDefault();
 
     axios
-      .put(`http://localhost:5020/v1/api/admin/cap-nhat-guide/${guideID}`, user)
+      .put(
+        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-guide/${guideID}`,
+        user
+      )
       .then(() => {
         toast.success("Cập nhật thành công");
 
