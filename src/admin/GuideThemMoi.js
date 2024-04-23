@@ -29,7 +29,7 @@ const GuideThemMoi = () => {
     const fetchTourOptions = async () => {
       try {
         const response = await axios.get(
-          "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-danh-sach-tour"
+          "http://localhost:5020/v1/api/admin/lay-danh-sach-tour"
         );
         setTourOptions(response.data);
       } catch (error) {
@@ -54,7 +54,7 @@ const GuideThemMoi = () => {
 
     try {
       const response = await axios.post(
-        "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/guide_register",
+        "http://localhost:5020/v1/api/admin/guide_register",
         {
           email,
           phone,
@@ -90,7 +90,7 @@ const GuideThemMoi = () => {
   };
 
   const isValidPhone = (value) => {
-    const phoneRegex = /^\d{10}$/; 
+    const phoneRegex = /^\d{10}$/;
     return phoneRegex.test(value);
   };
   const { adminToken } = useAuth();

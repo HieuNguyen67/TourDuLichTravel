@@ -22,7 +22,7 @@ const OrderList = () => {
   const fetchOrders = async () => {
     try {
       const response = await axios.get(
-        "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/api/orders"
+        "http://localhost:5020/v1/api/admin/api/orders"
       );
       setOrders(response.data);
     } catch (error) {
@@ -42,7 +42,7 @@ const OrderList = () => {
     return null;
   }
   const formatCurrency = (price) => {
-    const priceInteger = Math.round(price * 100); 
+    const priceInteger = Math.round(price * 100);
 
     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
       currency: "VND",
@@ -55,14 +55,14 @@ const OrderList = () => {
       case "Tiếp nhận":
         return "yellow";
       case "Đã thanh toán":
-        return "#99FF99"; 
+        return "#99FF99";
       case "Đã huỷ":
         return "#FF6633";
       case "Đã kết thúc":
         return "#FF9900";
-   
+
       default:
-        return "black"; 
+        return "black";
     }
   };
 

@@ -29,10 +29,10 @@ const Bookingtour = () => {
     const fetchTour = async () => {
       try {
         const responseTour = await axios.get(
-          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-tour/${tourID}`
+          `http://localhost:5020/v1/api/admin/lay-thong-tin-tour/${tourID}`
         );
         const responseImages = await axios.get(
-          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-hinh-anh-tour/${tourID}`
+          `http://localhost:5020/v1/api/admin/lay-hinh-anh-tour/${tourID}`
         );
 
         setTour(responseTour.data);
@@ -45,7 +45,7 @@ const Bookingtour = () => {
     fetchTour();
   }, [tourID]);
   const formatCurrency = (price) => {
-    const priceInteger = Math.round(price * 100); 
+    const priceInteger = Math.round(price * 100);
 
     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
       currency: "VND",
@@ -65,7 +65,7 @@ const Bookingtour = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-user/${userId}`
+          `http://localhost:5020/v1/api/admin/lay-thong-tin-user/${userId}`
         );
         setUser(response.data);
       } catch (error) {
@@ -86,13 +86,9 @@ const Bookingtour = () => {
     e.preventDefault();
 
     axios
-      .put(
-        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-user/${userId}`,
-        user
-      )
+      .put(`http://localhost:5020/v1/api/admin/cap-nhat-user/${userId}`, user)
       .then(() => {
         window.alert("Cập nhật thành công!");
-
       })
       .catch((error) => {
         console.error("Lỗi khi cập nhật người dùng:", error);
@@ -107,7 +103,6 @@ const Bookingtour = () => {
       <Container>
         <Row className="mt-5">
           <Col className="col-md-4 col-12">
-           
             {images.length > 0 && (
               <img
                 src={`data:image/jpeg;base64,${images[0]}`}

@@ -23,7 +23,7 @@ const Profile = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-user/${userID}`
+          `http://localhost:5020/v1/api/admin/lay-thong-tin-user/${userID}`
         );
         setUser(response.data);
       } catch (error) {
@@ -47,7 +47,7 @@ const Profile = () => {
   const fetchOrdersByUser = async () => {
     try {
       const response = await axios.get(
-        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/api/orders/user/${userID}`
+        `http://localhost:5020/v1/api/admin/api/orders/user/${userID}`
       );
       setOrders(response.data);
     } catch (error) {
@@ -55,7 +55,7 @@ const Profile = () => {
     }
   };
   const formatCurrency = (price) => {
-    const priceInteger = Math.round(price * 100); 
+    const priceInteger = Math.round(price * 100);
 
     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
       currency: "VND",
@@ -68,12 +68,11 @@ const Profile = () => {
       case "Tiếp nhận":
         return "yellow";
       case "Đã thanh toán":
-        return "#99FF99"; 
+        return "#99FF99";
       case "Đã huỷ":
         return "#FF6633";
       case "Đã kết thúc":
         return "#FF9900";
-      
       default:
         return "black";
     }

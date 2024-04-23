@@ -20,10 +20,11 @@ const TourTongHop = () => {
     const fetchTours = async () => {
       try {
         const response = await axios.get(
-          "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/get-tours"
+          "http://localhost:5020/v1/api/admin/get-tours"
         );
         setTours(response.data);
         setLoading(false);
+        console.log(setTours);
       } catch (error) {
         console.error("Error fetching tours:", error);
       }
@@ -32,7 +33,7 @@ const TourTongHop = () => {
     fetchTours();
   }, []);
   const formatCurrency = (price) => {
-    const priceInteger = Math.round(price * 100); 
+    const priceInteger = Math.round(price * 100);
 
     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
       currency: "VND",

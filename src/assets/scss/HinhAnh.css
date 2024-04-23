@@ -1,0 +1,35 @@
+@media (max-width: 576px) {
+  .sizepicture {
+    height: 300px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .sizepicture1 {
+    height: 150px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media (min-width: 1200px) {
+  .sizepicture {
+    height: 460px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .sizepicture1 {
+    height: 230px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .sizepicture, .sizepicture1 {
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(50%);
+    -webkit-transition: all 1s ease;
+  }
+  .sizepicture:hover, .sizepicture1:hover {
+    filter: grayscale(0%);
+    filter: gray;
+    filter: none;
+    transition: 1s ease;
+  }
+}

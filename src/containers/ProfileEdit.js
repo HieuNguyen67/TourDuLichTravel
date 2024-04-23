@@ -24,7 +24,7 @@ function ProfileEdit() {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-user/${userID}`
+          `http://localhost:5020/v1/api/admin/lay-thong-tin-user/${userID}`
         );
         setUser(response.data);
       } catch (error) {
@@ -46,10 +46,7 @@ function ProfileEdit() {
     e.preventDefault();
 
     axios
-      .put(
-        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-user/${userID}`,
-        user
-      )
+      .put(`http://localhost:5020/v1/api/admin/cap-nhat-user/${userID}`, user)
       .then(() => {
         toast.success("Cập nhật thành công");
 

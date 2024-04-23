@@ -34,10 +34,10 @@ const TourEdit = () => {
     const fetchTour = async () => {
       try {
         const responseTour = await axios.get(
-          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-tour/${tourID}`
+          `http://localhost:5020/v1/api/admin/lay-thong-tin-tour/${tourID}`
         );
         const responseImages = await axios.get(
-          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-hinh-anh-tour/${tourID}`
+          `http://localhost:5020/v1/api/admin/lay-hinh-anh-tour/${tourID}`
         );
 
         setTour(responseTour.data);
@@ -66,10 +66,7 @@ const TourEdit = () => {
     e.preventDefault();
 
     axios
-      .put(
-        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-tour/${tourID}`,
-        tour
-      )
+      .put(`http://localhost:5020/v1/api/admin/cap-nhat-tour/${tourID}`, tour)
       .then(() => {
         window.location.href = "/admin/TourLietKe";
       })

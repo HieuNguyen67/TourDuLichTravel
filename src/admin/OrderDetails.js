@@ -25,7 +25,7 @@ const OrderDetails = () => {
   const fetchOrderDetails = async () => {
     try {
       const response = await axios.get(
-        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/api/orders/${orderID}`
+        `http://localhost:5020/v1/api/admin/api/orders/${orderID}`
       );
       setOrderDetails(response.data);
     } catch (error) {
@@ -46,7 +46,7 @@ const OrderDetails = () => {
     return null;
   }
   const formatCurrency = (price) => {
-    const priceInteger = Math.round(price * 100); 
+    const priceInteger = Math.round(price * 100);
 
     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
       currency: "VND",
@@ -62,7 +62,7 @@ const OrderDetails = () => {
   const handleUpdateStatus = async () => {
     try {
       await axios.put(
-        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/api/orders/${orderID}/status`,
+        `http://localhost:5020/v1/api/admin/api/orders/${orderID}/status`,
         {
           status: newStatus,
         }

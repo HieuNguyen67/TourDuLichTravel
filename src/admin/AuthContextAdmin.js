@@ -1,4 +1,3 @@
-// AuthContextAdmin.js
 import { createContext, useContext, useState } from "react";
 
 const AuthContextAdmin = createContext();

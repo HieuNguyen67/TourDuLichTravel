@@ -18,7 +18,7 @@ const TourLietKe = () => {
     const fetchTours = async () => {
       try {
         const response = await axios.get(
-          "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/get-tours"
+          "http://localhost:5020/v1/api/admin/get-tours"
         );
         setTours(response.data);
         setLoading(false);
@@ -28,7 +28,7 @@ const TourLietKe = () => {
     };
 
     fetchTours();
-  }, []); 
+  }, []);
 
   const handleDelete = async (tourID) => {
     try {
@@ -36,11 +36,11 @@ const TourLietKe = () => {
         "Bạn có chắc chắn muốn xóa tour này không?"
       );
       if (!confirm) {
-        return; 
+        return;
       }
 
       await axios.delete(
-        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/delete-tour/${tourID}`
+        `http://localhost:5020/v1/api/admin/delete-tour/${tourID}`
       );
 
       setTours(tours.filter((tour) => tour.id !== tourID));
@@ -68,7 +68,7 @@ const TourLietKe = () => {
     return null;
   }
   const formatCurrency = (price) => {
-    const priceInteger = Math.round(price * 100); 
+    const priceInteger = Math.round(price * 100);
     const formattedPrice = (priceInteger / 100).toLocaleString("vi-VN", {
       currency: "VND",
     });

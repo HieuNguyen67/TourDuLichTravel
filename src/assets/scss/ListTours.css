@@ -1,0 +1,76 @@
+@media (max-width: 576px) {
+  .boxlisttour {
+    border: 1px solid lightgrey;
+    height: 200px;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .fontsize {
+    font-size: 18px;
+  }
+  .fontsize1 {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1200px) {
+  .boxlisttour {
+    border: 1px solid lightgrey;
+    height: 320px;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+.box4::before, .box3::before, .box2::before, .box1::before, .box::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.8;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.box, .box1, .box2, .box3, .box4 {
+  position: relative;
+  background-color: #000;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(50%);
+  -webkit-transition: all 0.5s ease;
+}
+
+.box:hover, .box1:hover, .box2:hover, .box3:hover, .box4:hover {
+  filter: grayscale(0%);
+  filter: gray;
+  filter: none;
+  transition: 1s ease;
+}
+
+.box::before {
+  background: url("../image/chonoi-1694076469156-16940764692721622183288.jpg") no-repeat center center;
+}
+
+.box1::before {
+  background: url("../image/mua-nuoc-noi-mien-tay-dep.jpg") no-repeat center center;
+}
+
+.box2::before {
+  background: url("../image/Ve-may-bay-di-sai-gon-600x399-4356-2813-1668672299.jpg") no-repeat center center;
+}
+
+.box3::before {
+  background: url("../image/A1-jpeg.jpg") no-repeat center center;
+}
+
+.box4::before {
+  background: url("../image/dalat_tours3.jpg") no-repeat center center;
+}
+
+.textshadow {
+  text-shadow: 5px 5px 10px black;
+}

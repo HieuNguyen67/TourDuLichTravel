@@ -21,7 +21,7 @@ const TourEditImage = () => {
     const fetchTour = async () => {
       try {
         const response = await axios.get(
-          `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/lay-thong-tin-tour/${tourID}`
+          `http://localhost:5020/v1/api/admin/lay-thong-tin-tour/${tourID}`
         );
         setTour(response.data);
       } catch (error) {
@@ -41,7 +41,7 @@ const TourEditImage = () => {
       }
 
       await axios.put(
-        `https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/cap-nhat-hinh-anh-tour/${tourID}`,
+        `http://localhost:5020/v1/api/admin/cap-nhat-hinh-anh-tour/${tourID}`,
         formData,
         {
           headers: {
@@ -54,7 +54,6 @@ const TourEditImage = () => {
       setTimeout(() => {
         navigate(`/admin/sua-tour/${tourID}`);
       }, 1500);
-
     } catch (error) {
       console.error("Lỗi khi cập nhật hình ảnh tour:", error);
     }

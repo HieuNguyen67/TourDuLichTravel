@@ -1,0 +1,97 @@
+.row {
+  --bs-gutter-x:0 !important ;
+}
+
+@media (max-width: 576px) {
+  .border {
+    border: 1px solid lightgrey;
+    background-color: aqua;
+    height: 350px;
+    margin-bottom: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .borrder {
+    border: 1px solid lightgrey;
+    background-color: aqua;
+    height: 350px;
+    margin-bottom: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+@media (min-width: 1200px) {
+  .border {
+    border: 1px solid lightgrey;
+    background-color: aqua;
+    height: 700px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .borrder {
+    border: 1px solid lightgrey;
+    background-color: aqua;
+    height: 350px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+.bg::before {
+  background: url("../image/rung-tra-su-an-giang.jpg") no-repeat center center;
+}
+
+.bg1::before {
+  background: url("../image/phu-quoc-1.jpg") no-repeat center center;
+}
+
+.bg2::before {
+  background: url("../image/Pasar_terapung.jpg") no-repeat center center;
+}
+
+.bg3::before {
+  background: url("../image/nui-cam01.jpg") no-repeat center center;
+}
+
+.bg4::before {
+  background: url("../image/cantho.jpg") no-repeat center center;
+}
+
+.bg5::before {
+  background: url("../image/lang-viet-9178.jpg") no-repeat center center;
+}
+
+.bg6::before {
+  background: url("../image/tiengiang.jpg") no-repeat center center;
+}
+
+.bg, .bg1, .bg2, .bg3, .bg4, .bg5, .bg6 {
+  position: relative;
+  background-color: #000;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(50%);
+  -webkit-transition: all 0.5s ease;
+}
+
+.bg::before, .bg1::before, .bg2::before, .bg3::before, .bg4::before, .bg5::before, .bg6::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.6;
+  background-size: cover;
+}
+
+.bg:hover, .bg1:hover, .bg2:hover, .bg3:hover, .bg4:hover, .bg5:hover, .bg6:hover {
+  filter: grayscale(0%);
+  filter: gray;
+  filter: none;
+  transition: 1s ease;
+}
+
+.textshadow2 {
+  text-shadow: 5px 5px 10px black;
+}

@@ -53,7 +53,7 @@ const TourThemMoi = () => {
 
     try {
       await axios.post(
-        "https://backend-do-an-chuyen-nganh.vercel.app/v1/api/admin/add-tour",
+        "http://localhost:5020/v1/api/admin/add-tour",
         formData,
         {
           headers: {
@@ -66,7 +66,6 @@ const TourThemMoi = () => {
       setTimeout(() => {
         navigate("/admin/TourLietKe");
       }, 1500);
-
     } catch (error) {
       console.error("Error adding tour:", error);
     }
